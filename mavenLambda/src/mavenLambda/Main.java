@@ -4,11 +4,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collector;
+
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main {
+	public static Logger log = LoggerFactory.getLogger(Main.class);
 	private static LocalDate today = LocalDate.now();
 	public static List<Product> allProduct;
 	static List<Product> list1 = new ArrayList<Product>();
@@ -59,7 +63,7 @@ public class Main {
 
 		filtraListaBaby("baby").forEach(e -> System.out.println(e));
 		;
-		getDiscount("boys",0.9).forEach(e->System.out.println(e));
+		getDiscount("boys",0.9).forEach(e->log.info(" " + e));
 	}
 
 	public static List<Product> filtraLista() {
