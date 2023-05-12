@@ -22,7 +22,7 @@ public class MainRubrica {
 			System.out.println(m.toString());
 		//findContByName();
 		findContByNum();
-
+		
 	}
 	public static void addContact() {
 		System.out.println("Inserisci il nome");

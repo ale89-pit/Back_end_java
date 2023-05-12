@@ -1,6 +1,6 @@
 package mavenLambda;
 
-import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 public class Main {
 	public static Logger log = LoggerFactory.getLogger(Main.class);
-	private static LocalDate today = LocalDate.now();
+	
 	public static List<Product> allProduct;
 	static List<Product> list1 = new ArrayList<Product>();
 	static List<Product> list2 = new ArrayList<Product>();
@@ -21,6 +21,7 @@ public class Main {
 	static List<Product> list4 = new ArrayList<Product>();
 	static List<Product> list5 = new ArrayList<Product>();
 	static List<Order> orderList = new ArrayList<Order>();
+	
 
 	public static void main(String[] args) {
 		Product p1 = new Product("libro", "book", 200);
@@ -57,13 +58,13 @@ public class Main {
 		orderList.add(o1);
 		orderList.add(o2);
 		orderList.add(o3);
-
+		log.info("test");
 		filtraLista().forEach(e -> System.out.println(e));
 		System.out.println(o1);
 
 		filtraListaBaby("baby").forEach(e -> System.out.println(e));
 		;
-		getDiscount("boys",0.9).forEach(e->log.info(" " + e));
+		getDiscount("boys",0.9).forEach(e->System.out.println(" " + e));
 	}
 
 	public static List<Product> filtraLista() {
