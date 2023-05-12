@@ -45,8 +45,8 @@ public abstract class ElementoBiblio {
 	
 	@Override
 	public String toString() {
-		return "ElementoBiblio [ISBN=" + ISBN + ", title=" + title + ", annoPublicazione=" + annoPublicazione
-				+ ", numeroPagine=" + numeroPagine + "]";
+		return "ElementoBiblio ISBN=" + ISBN + ", title=" + title + ", annoPublicazione=" + annoPublicazione
+				+ ", numeroPagine=" + numeroPagine + " ";
 	}
 
 }

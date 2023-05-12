@@ -1,7 +1,7 @@
 package w2D5_Project;
 
 import java.time.LocalDate;
-import java.util.Date;
+
 
 public class Rivista extends ElementoBiblio{
 	Periodicita periodicita;
@@ -19,6 +19,11 @@ public class Rivista extends ElementoBiblio{
 
 	public void setPeriodicita(Periodicita  periodicita) {
 		this.periodicita = periodicita;
+	}
+
+	@Override
+	public String toString() {
+		return  "Rivista periodicita=" + periodicita + "" + super.toString() ;
 	}
 	
 	

@@ -1,0 +1,1 @@
+Book autore=pippo, genere=a ElementoBiblio ISBN=sdfw324, title=title, annoPublicazione=1945-03-23, numeroPagine=200 
