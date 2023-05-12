@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 public class MainProject {
 	static File file = new File("backup.txt");
 	static File file2 = new File("backup2.txt");
+	static String backup = "";
 	static List<ElementoBiblio> listaBiblio = new ArrayList<ElementoBiblio>();
 	public static Scanner input = new Scanner(System.in);
 	static Logger log = LoggerFactory.getLogger(MainProject.class);
@@ -52,6 +53,9 @@ public class MainProject {
 		searchByDate(LocalDate.of(1999,9,23)).forEach(ele->System.out.println(ele));
 		searchByAutore("pippo").forEach(ser->System.out.println(ser));;
 		scriviBackUp(a);
+		scriviBackUp(b);
+		scriviBackUp(c);
+		scriviBackUp(d);
 		scriviBackUpTotale(listaBiblio);
 	}
 
@@ -156,8 +160,10 @@ public class MainProject {
 	
 	
 	public static void scriviBackUp(ElementoBiblio ele) throws IOException {
-	
-		FileUtils.writeStringToFile(file, ele.toString(), "UTF-8");
+			
+			backup += ele.toString();
+			
+		FileUtils.writeStringToFile(file, backup, "UTF-8");
 		
 	}
 	
