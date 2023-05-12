@@ -14,14 +14,19 @@ public class MainProject {
 		log.info("test");
 		System.out.println(addELement());
 	}
-public static List<ElementoBiblio> addELement(){
-	List<ElementoBiblio> element = new ArrayList<ElementoBiblio>();
-	element.add(new Book("1234fesa4","titolo", LocalDate.of(1920, 10, 02),150,"pippo","fantasy"));
-	element.add(new Book("1234fesa4","titolo", LocalDate.of(1920, 10, 02),150,"pippo","fantasy"));
-	element.add(new Book("1234fesa4","titolo", LocalDate.of(1920, 10, 02),150,"pippo","fantasy"));
-	element.add(new Book("1234fesa4","titolo", LocalDate.of(1920, 10, 02),150,"pippo","fantasy"));
-	element.add(new Book("1234fesa4","titolo", LocalDate.of(1920, 10, 02),150,"pippo","fantasy"));
+public static ElementoBiblio addELement(){
+	ElementoBiblio element = new Book("1234fesa4","titolo", LocalDate.of(1920, 10, 02),150,"pippo","fantasy");
+//	element.add();
+//	element.add(new Rivista("dffs332","titolo2", LocalDate.of(2020, 05, 30),50,Periodicita.MENSILE));
+//	element.add(new Book("495oeof","titolo3", LocalDate.of(1967, 8, 02),100,"PLUTO","Horror"));
+//	element.add(new Rivista("rtujh432","titolo4", LocalDate.of(2023, 01, 01),80,Periodicita.SEMESTRALE));
+//	element.add(new Book("543fgws3","titolo5", LocalDate.of(1989, 04, 25),400,"Paperino","Commedy"));
 	return element;
 	
+}
+
+public List<ElementoBiblio> searchByISBN(List<ElementoBiblio> list,String isbn){
+	return list.filter(e->e.getISBN().equals(isbn))
+	 
 }
 }

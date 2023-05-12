@@ -4,21 +4,25 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public abstract class ElementoBiblio {
-	private final String ISBN;
+	private String ISBN;
 	private String title;
 	private LocalDate annoPublicazione;
 	private int numeroPagine;
 	
 	public ElementoBiblio(String iSBN, String title, LocalDate annoPublicazione, int numeroPagine) {
 		super();
-		ISBN = iSBN;
+		this.ISBN = iSBN;
 		this.title = title;
 		this.annoPublicazione = annoPublicazione;
 		this.numeroPagine = numeroPagine;
 	}
 	
-	
-	
+	public String getISBN() {
+		return this.ISBN;
+	}
+	public void setISBN(String isbn) {
+		this.ISBN = isbn;
+	}
 
 	public String getTitle() {
 		return title;
