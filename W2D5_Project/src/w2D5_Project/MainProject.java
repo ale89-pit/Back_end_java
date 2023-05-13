@@ -160,7 +160,7 @@ public class MainProject {
 	
 	
 	public static void scriviBackUp(ElementoBiblio ele) throws IOException {
-			
+			backup = FileUtils.readFileToString(file, "UTF-8");
 			backup += ele.toString();
 			
 		FileUtils.writeStringToFile(file, backup, "UTF-8");
@@ -169,6 +169,7 @@ public class MainProject {
 	
 	
 	public static void scriviBackUpTotale(List<ElementoBiblio> ele) throws IOException {
+		
 		
 		FileUtils.writeStringToFile(file2, ele.toString(), "UTF-8");
 		
