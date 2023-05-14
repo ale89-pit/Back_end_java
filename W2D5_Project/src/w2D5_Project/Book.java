@@ -29,11 +29,12 @@ public class Book extends ElementoBiblio{
 	}
 	@Override
 	public String toString() {
-		return  "Book{ISBN="+ super.getISBN() 
-					+"title=" + super.getTitle() 
-					+"annoPublicazione=" + getAnnoPublicazione()
-					+"numeroPagine=" + super.getNumeroPagine() 
-					+"autore=" + autore 
+		return  "Book :"
+					+"ISBN="+ super.getISBN()+"," 
+					+"title=" + super.getTitle()+","
+					+"annoPublicazione=" + getAnnoPublicazione()+","
+					+"numeroPagine=" + super.getNumeroPagine()+"," 
+					+"autore=" + autore+"," 
 					+ "genere=" + genere + "}";
 	}
 	

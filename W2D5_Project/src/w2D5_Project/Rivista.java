@@ -23,10 +23,11 @@ public class Rivista extends ElementoBiblio{
 
 	@Override
 	public String toString() {
-		return  "Rivista{ISBN="+ super.getISBN()
-						+"title=" + super.getTitle() 
-						+ "annoPublicazione=" + super.getAnnoPublicazione()
-						+ "numeroPagine=" + super.getNumeroPagine() 
+		return  "Rivista :"
+						+"ISBN="+ super.getISBN()+","
+						+"title=" + super.getTitle()+"," 
+						+ "annoPublicazione=" + super.getAnnoPublicazione()+","
+						+ "numeroPagine=" + super.getNumeroPagine()+","
 						+ "periodicita=" + periodicita + "}" ;
 	}
 	
