@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 
 public class MainProject {
 	static File file = new File("backup.txt");
-	static File file2 = new File("backup2.txt");
+//	static File file2 = new File("backup2.txt");
 	static String backup = "";
 	static List<ElementoBiblio> listaBiblio = new ArrayList<ElementoBiblio>();
 	public static Scanner input = new Scanner(System.in);
@@ -43,8 +43,15 @@ public class MainProject {
 		listaBiblio.add(f);
 		listaBiblio.add(g);
 		listaBiblio.add(h);
-		listaBiblio.forEach(s -> System.out.println(s));
-		scriviBackUpTotale(listaBiblio);
+		listaBiblio.forEach(s -> {
+			try {
+				scriviBackUp(s);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
+		
 		try {
 		int risp;
 		System.out.println("digita qualsiasi numero per cominciare, oppure 0->esci");
@@ -104,36 +111,6 @@ public class MainProject {
 //			ex.printStackTrace();
 		}
 
-//		ElementoBiblio a =	new Book("sdfw324", "title", LocalDate.of(1945, 3, 23),200 , "pippo", "a");
-//		ElementoBiblio b =new Rivista("gtrt453", "title", LocalDate.of(1962, 5, 25),50, Periodicita.MENSILE);
-//		ElementoBiblio c =new Book("ewew3434", "title", LocalDate.of(1989, 8, 30),200 , "pippo", "a");
-//		ElementoBiblio d =new Rivista("rfgt34", "title", LocalDate.of(2020, 2, 5),50, Periodicita.SETTIMANALE);
-//		ElementoBiblio e =new Book("swe4", "title", LocalDate.of(2000, 12, 13),200 , "autore", "a");
-//		ElementoBiblio f =new Rivista("trt534", "title", LocalDate.of(1995, 11, 19),50, Periodicita.SEMESTRALE);
-//		ElementoBiblio g =new Book("sdf34324", "title", LocalDate.of(1999, 9, 23),200 , "recchia", "a");
-//		ElementoBiblio h =new Rivista("rft4534", "title", LocalDate.of(1972, 7, 8),50, Periodicita.MENSILE);
-//		listaBiblio.add(a);
-//		listaBiblio.add(b);
-//		listaBiblio.add(c);
-//		listaBiblio.add(d);
-//		listaBiblio.add(e);
-//		listaBiblio.add(f);
-//		listaBiblio.add(g);
-//		listaBiblio.add(h);
-//		//listaBiblio.add(addELement());
-////		addELement();
-////		listaBiblio.forEach(el -> System.out.println(el));
-////		deleteElementByisbn(listaBiblio,"rft4534");
-////		System.out.println("*******lista eliminazione**********");
-////		listaBiblio.forEach(el -> System.out.println(el));
-////		serchByIsbn("gtrt453");
-//		searchByDate(LocalDate.of(1999,9,23)).forEach(ele->System.out.println(ele));
-//		searchByAutore("pippo").forEach(ser->System.out.println(ser));;
-//		scriviBackUp(a);
-//		scriviBackUp(b);
-//		scriviBackUp(c);
-//		scriviBackUp(d);
-//		scriviBackUpTotale(listaBiblio);
 	}
 
 	public static ElementoBiblio addELement() throws IOException {
@@ -159,7 +136,7 @@ public class MainProject {
 		String title = r.nextLine();
 		System.out.println("Insericsci Anno Data Pubblicazione");
 		int anno = Integer.parseInt(r.nextLine());
-		System.out.println("Insericsci Mese Data Pubblicazione");
+//		System.out.println("Insericsci Mese Data Pubblicazione");
 //		int mese = Integer.parseInt(r.nextLine());
 //		System.out.println("Insericsci Giorno Data Pubblicazione");
 //		int day = Integer.parseInt(r.nextLine());
@@ -272,15 +249,15 @@ public class MainProject {
 
 	}
 
-	public static void scriviBackUpTotale(List<ElementoBiblio> ele) throws IOException {
-
-		FileUtils.writeStringToFile(file2, ele.toString(), "UTF-8");
-
-	}
+//	public static void scriviBackUpTotale(List<ElementoBiblio> ele) throws IOException {
+//
+//		FileUtils.writeStringToFile(file2, ele.toString(), "UTF-8");
+//
+//	}
 
 	
 	public static List<ElementoBiblio> readFromFile() throws IOException {
-		String read = FileUtils.readFileToString(file2, "UTF-8");
+		String read = FileUtils.readFileToString(file, "UTF-8");
 
 		String[] elemento = read.split("}");
 		String isbnRst ="";
@@ -314,7 +291,7 @@ public class MainProject {
 							case 2: dateRst =Integer.parseInt(valori[j2]);break;
 							case 3: nPagRst =Integer.parseInt(valori[j2]);break;
 							case 4: autoreRst = valori[j2];break;
-							case 5: genereRst = valori[j2];System.out.println(isbnRst +titleRst + dateRst + nPagRst + autoreRst + genereRst);;break;
+							case 5: genereRst = valori[j2];listaBiblio.add(new Book(isbnRst,titleRst,dateRst,nPagRst,autoreRst,genereRst));break;
 							}
 								
 							
@@ -350,7 +327,7 @@ public class MainProject {
 							case 1: titleRst = valori[k2];break;
 							case 2: dateRst =Integer.parseInt(valori[k2]);break;
 							case 3: nPagRst =Integer.parseInt(valori[k2]);break;
-							case 4: perRst = valori[k2].equals("SETTIMANALE") ? Periodicita.SETTIMANALE:valori[k2].equals("MENSILE")? Periodicita.MENSILE:perRst;System.out.println(isbnRst + titleRst + dateRst + nPagRst + perRst);break;
+							case 4: perRst = valori[k2].equals("SETTIMANALE") ? Periodicita.SETTIMANALE:valori[k2].equals("MENSILE")? Periodicita.MENSILE:perRst;listaBiblio.add(new Rivista(isbnRst, titleRst,dateRst,nPagRst,perRst));break;
 							}
 							
 								
