@@ -307,19 +307,21 @@ public class MainProject {
 						
 						for(int j2=1;j2<valori.length;j2++) {
 //							System.out.println("campo:"+ j1 + " index : " + j2);
-							System.out.println("for libri  " + valori[j2].toString());
-//							switch(j1) {
-//							case 0: isbnRst = valori[j2];break;
-//							case 1: titleRst = valori[j2];break;
-//							case 2: dateRst =Integer.parseInt(valori[j2]);break;
-//							case 3: nPagRst =Integer.parseInt(valori[j2]);break;
-//							case 4: autoreRst = valori[j2];break;
-//							case 5: genereRst = valori[j2];;break;
-//							}
-//								
+//							System.out.println("for libri  " + valori[j2].toString());
+							switch(j1) {
+							case 0: isbnRst = valori[j2];break;
+							case 1: titleRst = valori[j2];break;
+							case 2: dateRst =Integer.parseInt(valori[j2]);break;
+							case 3: nPagRst =Integer.parseInt(valori[j2]);break;
+							case 4: autoreRst = valori[j2];break;
+							case 5: genereRst = valori[j2];System.out.println(isbnRst +titleRst + dateRst + nPagRst + autoreRst + genereRst);;break;
+							}
+								
 							
 						}
-						
+//						if(j1==campi.length) {
+//							
+//						}
 //						listaBiblio.add(isbnRst,titleRst,LocalDate(2332,3,3),nPagRst,autoreRst,genereRst);
 						
 					}
@@ -340,25 +342,21 @@ public class MainProject {
 //						System.out.println("valori rivista" + valori[1].toString());
 						for(int k2=1;k2<valori.length;k2++) {
 //							System.out.println("campo:"+ k1 + "v index : " + k2);
-							System.out.println("for rivista " + valori[k2].toString());
+//							System.out.println("for rivista " + valori[k2].toString());
 							
-//							switch(k1) {
-//							
-//							case 0: isbnRst = valori[k2]; break;
-//							case 1: titleRst = valori[k2];break;
-//							case 2: dateRst =Integer.parseInt(valori[k2]);break;
-//							case 3: nPagRst =Integer.parseInt(valori[k2]);break;
-//							case 4: perRst = valori[k2] == "SETTIMANALE" ? Periodicita.SETTIMANALE:valori[k2] == "MENSILE"? Periodicita.MENSILE: perRst;break;
-//							}
-
+							switch(k1) {
 							
+							case 0: isbnRst = valori[k2]; break;
+							case 1: titleRst = valori[k2];break;
+							case 2: dateRst =Integer.parseInt(valori[k2]);break;
+							case 3: nPagRst =Integer.parseInt(valori[k2]);break;
+							case 4: perRst = valori[k2].equals("SETTIMANALE") ? Periodicita.SETTIMANALE:valori[k2].equals("MENSILE")? Periodicita.MENSILE:perRst;System.out.println(isbnRst + titleRst + dateRst + nPagRst + perRst);break;
+							}
 							
-							
-							
-							
+								
 							
 						}
-					
+						
 						
 					}
 					
