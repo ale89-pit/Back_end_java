@@ -27,14 +27,14 @@ public class MainProject {
 	static String isbn;
 
 	public static void main(String[] args) throws IOException {
-		ElementoBiblio a = new Book("sdfw324", "titolo111", LocalDate.of(1945, 3, 23), 200, "pippo", "a");
-		ElementoBiblio b = new Rivista("gtrt453", "titolo2222", LocalDate.of(1962, 5, 25), 50, Periodicita.MENSILE);
-		ElementoBiblio c = new Book("ewew3434", "titolo333", LocalDate.of(1989, 8, 30), 200, "pippo", "a");
-		ElementoBiblio d = new Rivista("rfgt34", "titolo444", LocalDate.of(2020, 2, 5), 50, Periodicita.SETTIMANALE);
-		ElementoBiblio e = new Book("swe4", "titolo555", LocalDate.of(2000, 12, 13), 200, "autore", "a");
-		ElementoBiblio f = new Rivista("trt534", "titolo666", LocalDate.of(1995, 11, 19), 50, Periodicita.SEMESTRALE);
-		ElementoBiblio g = new Book("sdf34324", "titolo777", LocalDate.of(1999, 9, 23), 200, "recchia", "a");
-		ElementoBiblio h = new Rivista("rft4534", "titolo888", LocalDate.of(1972, 7, 8), 50, Periodicita.MENSILE);
+		ElementoBiblio a = new Book("sdfw324", "titolo111", 1945, 200, "pippo", "a");
+		ElementoBiblio b = new Rivista("gtrt453", "titolo2222",1962, 50, Periodicita.MENSILE);
+		ElementoBiblio c = new Book("ewew3434", "titolo333", 1989, 200, "pippo", "a");
+		ElementoBiblio d = new Rivista("rfgt34", "titolo444",2020,50, Periodicita.SETTIMANALE);
+		ElementoBiblio e = new Book("swe4", "titolo555", 2000, 200, "autore", "a");
+		ElementoBiblio f = new Rivista("trt534", "titolo666",1995,50, Periodicita.SEMESTRALE);
+		ElementoBiblio g = new Book("sdf34324", "titolo777",1999, 200, "recchia", "a");
+		ElementoBiblio h = new Rivista("rft4534", "titolo888", 1972, 50, Periodicita.MENSILE);
 		listaBiblio.add(a);
 		listaBiblio.add(b);
 		listaBiblio.add(c);
@@ -45,58 +45,64 @@ public class MainProject {
 		listaBiblio.add(h);
 		listaBiblio.forEach(s -> System.out.println(s));
 		scriviBackUpTotale(listaBiblio);
-//		try {
-			int risp;
+		try {
+		int risp;
+		System.out.println("digita qualsiasi numero per cominciare, oppure 0->esci");
+		risp = Integer.parseInt(input.nextLine());
+		
+		while (risp != 0){
 			
-			do {
-				System.out.println("digita qualsiasi numero per cominciare, oppure 0->esci");
-				risp = Integer.parseInt(input.nextLine());
-				System.out.println(risp);
-				int chose;
-					do {
-							System.out.println("Iniziamo");
-					System.out.println("1->Inserisci Nuovo Libro/rivista");
-					System.out.println("2->Elimina Libro/rivista tramite ISBN");
-					System.out.println("3->Cerca");
-					System.out.println("4->Backup-print");
-					Scanner scelta = new Scanner(System.in);
-					chose = Integer.parseInt(scelta.nextLine());
-				} while (chose < 1 & chose> 4);
+			System.out.println(risp);
+			int chose;
+			
+			
+				do {
+				System.out.println("Iniziamo");
+				System.out.println("1->Inserisci Nuovo Libro/rivista");
+				System.out.println("2->Elimina Libro/rivista tramite ISBN");
+				System.out.println("3->Cerca");
+				System.out.println("4->Backup-print");
+				Scanner scelta = new Scanner(System.in);
+				chose = Integer.parseInt(scelta.nextLine());
+				if(chose <1 | chose>4) {
+					System.out.println("Il valore inserito nn esiste!!!Rirpova!!");
+				}
+			} while (chose < 1 & chose > 4);
 				
-				switch (chose) {
-				
+			switch (chose) {
+
+			case 1:
+				addELement();
+				break;
+			case 2:
+				deleteElementByisbn();
+				break;
+			case 3:
+				System.out.println("1->search by ISBN, 2->search by autore,search by date");
+				Scanner scelta2 = new Scanner(System.in);
+				int searchChois = Integer.parseInt(scelta2.nextLine());
+				switch (searchChois) {
 				case 1:
-					addELement();
+					serchByIsbn();
 					break;
 				case 2:
-					deleteElementByisbn();
+					searchByAutore();
 					break;
 				case 3:
-					System.out.println("1->search by ISBN, 2->search by autore,search by date");
-					Scanner scelta2 = new Scanner(System.in);
-					int searchChois = Integer.parseInt(scelta2.nextLine());
-					switch (searchChois) {
-					case 1:
-						serchByIsbn();
-						break;
-					case 2:
-						searchByAutore();
-						break;
-					case 3:
-						searchByDate();
-						break;
-					}
-				case 4:
-					readFromFile();
+					searchByDate();
 					break;
 				}
-				
-			}while(risp!=0);
-//			
-//		}catch (Exception ex){
-//			System.out.println("errore inserimento");
-////			ex.printStackTrace();
-//		}
+			case 4:
+				readFromFile();
+				break;
+			}
+
+		} 
+			
+		}catch (NumberFormatException ex){
+			System.out.println("errore inserimento");
+//			ex.printStackTrace();
+		}
 
 //		ElementoBiblio a =	new Book("sdfw324", "title", LocalDate.of(1945, 3, 23),200 , "pippo", "a");
 //		ElementoBiblio b =new Rivista("gtrt453", "title", LocalDate.of(1962, 5, 25),50, Periodicita.MENSILE);
@@ -154,9 +160,9 @@ public class MainProject {
 		System.out.println("Insericsci Anno Data Pubblicazione");
 		int anno = Integer.parseInt(r.nextLine());
 		System.out.println("Insericsci Mese Data Pubblicazione");
-		int mese = Integer.parseInt(r.nextLine());
-		System.out.println("Insericsci Giorno Data Pubblicazione");
-		int day = Integer.parseInt(r.nextLine());
+//		int mese = Integer.parseInt(r.nextLine());
+//		System.out.println("Insericsci Giorno Data Pubblicazione");
+//		int day = Integer.parseInt(r.nextLine());
 		System.out.println("Insericsci Numero Pargine");
 		int pag = Integer.parseInt(r.nextLine());
 
@@ -165,7 +171,7 @@ public class MainProject {
 			String autore = r.nextLine();
 			System.out.println("Insericsci Genere");
 			String gender = r.nextLine();
-			element = new Book(isbn, title, LocalDate.of(anno, mese, day), pag, autore, gender);
+			element = new Book(isbn, title, anno,  pag, autore, gender);
 			listaBiblio.add(element);
 			scriviBackUp(element);
 		} else {
@@ -189,7 +195,7 @@ public class MainProject {
 
 			}
 
-			element = new Rivista(isbn, title, LocalDate.of(anno, mese, day), pag, per);
+			element = new Rivista(isbn, title, anno, pag, per);
 			listaBiblio.add(element);
 			scriviBackUp(element);
 		}
@@ -239,7 +245,7 @@ public class MainProject {
 		Scanner r = new Scanner(System.in);
 		System.out.println("Inserisci l'anno di pubblicazione");
 		int year = Integer.parseInt(r.nextLine());
-		List<ElementoBiblio> searchDate = listaBiblio.stream().filter(e -> e.getAnnoPublicazione().getYear() == year)
+		List<ElementoBiblio> searchDate = listaBiblio.stream().filter(e -> e.getAnnoPublicazione() == year)
 				.collect(Collectors.toList());
 		return searchDate;
 	}
@@ -277,12 +283,20 @@ public class MainProject {
 		String read = FileUtils.readFileToString(file2, "UTF-8");
 
 		String[] elemento = read.split("}");
-
+		String isbnRst ="";
+		String titleRst="" ;
+		int nPagRst=0;
+		String autoreRst="";
+		String genereRst="";
+		Integer dateRst=0;
+		Periodicita perRst = Periodicita.SEMESTRALE;
+		
 		for (int i = 0; i < elemento.length;i++) {
 			if (elemento[i].contains("Book")) {
 				//System.out.println(elemento[i].toString());
 				String[] book = elemento[i].split(":");
 				//System.out.println("for libri" + book[].toString());
+				System.out.print("Book :");
 				for (int j = 0; j < book.length;j++) {
 //					System.out.println("for libri" + book[j].toString());
 					String[] campi = book[j].split(",");
@@ -290,14 +304,23 @@ public class MainProject {
 //						System.out.println(campi.length + " " + j1);
 						String[]valori = campi[j1].split("=");
 //						System.out.println("for libri valore" + valori[0].toString());
+						
 						for(int j2=1;j2<valori.length;j2++) {
-							System.out.println("campo:"+ j1 + "valore index : " + j2);
-							System.out.println("for libri valore " + valori[j2].toString());
-							
+//							System.out.println("campo:"+ j1 + " index : " + j2);
+							System.out.println("for libri  " + valori[j2].toString());
+//							switch(j1) {
+//							case 0: isbnRst = valori[j2];break;
+//							case 1: titleRst = valori[j2];break;
+//							case 2: dateRst =Integer.parseInt(valori[j2]);break;
+//							case 3: nPagRst =Integer.parseInt(valori[j2]);break;
+//							case 4: autoreRst = valori[j2];break;
+//							case 5: genereRst = valori[j2];;break;
+//							}
+//								
 							
 						}
 						
-						
+//						listaBiblio.add(isbnRst,titleRst,LocalDate(2332,3,3),nPagRst,autoreRst,genereRst);
 						
 					}
 					
@@ -305,6 +328,7 @@ public class MainProject {
 
 			} else if(elemento[i].contains("Rivista")) {
 				String[] rivista = elemento[i].split(":");
+				System.out.print("Rivista :");
 				for (int k = 0; k < rivista.length;k++) {
 					
 //					System.out.println("for rivista " + rivista[k].toString());
@@ -315,22 +339,39 @@ public class MainProject {
 						String[]valori = campi[k1].split("=");
 //						System.out.println("valori rivista" + valori[1].toString());
 						for(int k2=1;k2<valori.length;k2++) {
-							System.out.println("campo:"+ k1 + "valore index : " + k2);
-							System.out.println("for rivista valore" + valori[k2].toString());
+//							System.out.println("campo:"+ k1 + "v index : " + k2);
+							System.out.println("for rivista " + valori[k2].toString());
+							
+//							switch(k1) {
+//							
+//							case 0: isbnRst = valori[k2]; break;
+//							case 1: titleRst = valori[k2];break;
+//							case 2: dateRst =Integer.parseInt(valori[k2]);break;
+//							case 3: nPagRst =Integer.parseInt(valori[k2]);break;
+//							case 4: perRst = valori[k2] == "SETTIMANALE" ? Periodicita.SETTIMANALE:valori[k2] == "MENSILE"? Periodicita.MENSILE: perRst;break;
+//							}
+
+							
+							
+							
+							
 							
 							
 						}
 					
-						String isbn = campi[k1];
 						
 					}
 					
 				}
+				
+				
+				
+				
+				
 			}
 			
 		}
-		;
-		// System.out.println(elemento[0].toString());
+		
 		return null;
 	}
 

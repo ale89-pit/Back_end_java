@@ -9,7 +9,7 @@ public class Book extends ElementoBiblio{
 	
 	private String autore;
 	private String genere;
-	public Book(String iSBN, String title, LocalDate annoPublicazione, int numeroPagine, String autore, String genere) {
+	public Book(String iSBN, String title, Integer annoPublicazione, int numeroPagine, String autore, String genere) {
 		super(iSBN, title, annoPublicazione, numeroPagine);
 		this.autore = autore;
 		this.genere = genere;

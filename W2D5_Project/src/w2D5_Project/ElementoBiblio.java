@@ -6,10 +6,10 @@ import java.util.Date;
 public abstract class ElementoBiblio {
 	private String ISBN;
 	private String title;
-	private LocalDate annoPublicazione;
+	private Integer annoPublicazione;
 	private int numeroPagine;
 	
-	public ElementoBiblio(String iSBN, String title, LocalDate annoPublicazione, int numeroPagine) {
+	public ElementoBiblio(String iSBN, String title, Integer annoPublicazione, int numeroPagine) {
 		super();
 		this.ISBN = iSBN;
 		this.title = title;
@@ -30,10 +30,10 @@ public abstract class ElementoBiblio {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public LocalDate getAnnoPublicazione() {
+	public Integer getAnnoPublicazione() {
 		return annoPublicazione;
 	}
-	public void setAnnoPublicazione(LocalDate annoPublicazione) {
+	public void setAnnoPublicazione(Integer annoPublicazione) {
 		this.annoPublicazione = annoPublicazione;
 	}
 	public int getNumeroPagine() {

@@ -8,7 +8,7 @@ public class Rivista extends ElementoBiblio{
 
 	
 
-	public Rivista(String iSBN, String title, LocalDate annoPublicazione, int numeroPagine, Periodicita periodicita) {
+	public Rivista(String iSBN, String title, Integer annoPublicazione, int numeroPagine, Periodicita periodicita) {
 		super(iSBN, title, annoPublicazione, numeroPagine);
 		this.periodicita = periodicita;
 	}
