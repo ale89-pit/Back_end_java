@@ -105,7 +105,7 @@ public class Student {
 	}
 
 
-	public void setMin_vote(Integer min_vote) {
+	public void setMin_vote(double min_vote) {
 		this.min_vote = min_vote;
 	}
 
@@ -115,7 +115,7 @@ public class Student {
 	}
 
 
-	public void setMax_vote(Integer max_vore) {
+	public void setMax_vote(double max_vore) {
 		this.max_vote = max_vore;
 	}
 
@@ -123,7 +123,7 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", name=" + name + ", lastname=" + lastname + ", gender=" + gender + ", birthdate="
-				+ birthdate + ", avg=" + avg + ", min_vote=" + min_vote + ", max_vore=" + max_vote + "]";
+				+ birthdate + ", avg=" + avg + ", min_vote=" + min_vote + ", max_vote=" + max_vote + "]";
 	}
 
 }
