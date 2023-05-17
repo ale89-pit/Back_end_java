@@ -95,7 +95,7 @@ public class Student {
 	}
 
 
-	public void setAvg(Integer avg) {
+	public void setAvg(double avg) {
 		this.avg = avg;
 	}
 

@@ -35,4 +35,19 @@ public class DbConnect {
 				
 	}
 	
+	public void updateStudent(Student s) throws SQLException {
+		String sql ="UPDATE student_school SET"
+				+"name = '"+s.getName()+"',"
+				+"lastname = '"+s.getLastname()+"',"
+				+"gender = '"+s.getGender()+"',"
+				+"birthdate = '"+s.getBirthdate()+"',"
+				+"avg ='"+s.getAvg()+"',"
+				+"min_vote = '"+s.getMin_vote()+"',"
+				+"max_vote = '"+s.getMax_vote()+"'"
+				+"WHERE id = '"+s.getId()+"'";
+		st.executeUpdate(sql);
+		System.out.println(" modificato nel DB");
+		
+	}
+	
 }
