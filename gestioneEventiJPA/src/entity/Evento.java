@@ -17,7 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import model.TipoEvento;
+
 
 @Entity
 @Table(name = "eventi")
@@ -44,7 +44,7 @@ public class Evento {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Location location;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="evento")
 	private Set<Partecipazione> listaPartecipazione;
 	
 	
@@ -53,14 +53,21 @@ public class Evento {
 	}
 
 
-	public Evento(String titolo, LocalDate dataEvento, String descrizione,TipoEvento tipoEvento, Integer maxPartecipanti) {
+
+	public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento,
+			Integer maxPartecipanti, Location location, Set<Partecipazione> listaPartecipazione) {
 		super();
 		this.titolo = titolo;
 		this.dataEvento = dataEvento;
 		this.descrizione = descrizione;
 		this.tipoEvento = tipoEvento;
 		this.maxPartecipanti = maxPartecipanti;
+		this.location = location;
+		this.listaPartecipazione = listaPartecipazione;
 	}
+
+
+
 
 
 	public String getDescrizione() {

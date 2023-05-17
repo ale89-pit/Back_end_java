@@ -23,13 +23,38 @@ public class Partecipazione {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(nullable = false)
-	@ManyToOne(mappedBy = "evento")
-	private List<Persona> persona;
-	@Column(nullable = false)
-	@OneToOne(mappedBy = "listaPartecipazione")
+	
+	@ManyToOne
+	private Persona persona;
+	
+	@ManyToOne
 	private Evento evento;
+	
 	@Enumerated(EnumType.STRING)
 	private StatoPartecipazione stato;
+
+	public Partecipazione(Persona persona, Evento evento, StatoPartecipazione stato) {
+		super();
+		this.persona = persona;
+		this.evento = evento;
+		this.stato = stato;
+	}
+
+	public Partecipazione() {
+		super();
+	}
+
+	public StatoPartecipazione getStato() {
+		return stato;
+	}
+
+	public void setStato(StatoPartecipazione stato) {
+		this.stato = stato;
+	}
+
+	@Override
+	public String toString() {
+		return "Partecipazione [id=" + id + ", persona=" + persona + ", evento=" + evento + ", stato=" + stato + "]";
+	}
 	
 }
