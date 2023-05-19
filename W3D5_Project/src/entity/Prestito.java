@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Prestito {
 	
 	@Id
@@ -27,9 +27,9 @@ public class Prestito {
 	
 	private ElementoBiblio elementoPrestato;
 	@Column(name="data_inizio_prestito")
-	private LocalDate dataInizioPrestito = LocalDate.now();
+	private LocalDate dataInizioPrestito; 
 	@Column(name="data_restituzione_prevista")
-	private LocalDate dataRestituzionePrevista = dataInizioPrestito.plusDays(30);
+	private LocalDate dataRestituzionePrevista ;
 	@Column(name="data_restituzione_effettiva")
 	private LocalDate dataRestituzioneEffettiva;
 	
@@ -39,13 +39,12 @@ public class Prestito {
 	}
 
 
-	public Prestito(Utente utente, ElementoBiblio elementoPrestato, LocalDate dataInizioPrestito,
-			LocalDate dataRestituzioneEffettiva) {
+	public Prestito(Utente utente, ElementoBiblio elementoPrestato) {
 		super();
 		this.utente = utente;
 		this.elementoPrestato = elementoPrestato;
-		this.dataInizioPrestito = dataInizioPrestito;
-		this.dataRestituzioneEffettiva = dataRestituzioneEffettiva;
+		this.dataInizioPrestito = LocalDate.now();
+		this.dataRestituzionePrevista =dataInizioPrestito.plusDays(30);
 	}
 
 
