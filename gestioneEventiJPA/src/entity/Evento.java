@@ -11,8 +11,11 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -21,6 +24,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "eventi")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) 
+@NamedQuery(name = "findAllEventi", query ="SELECT ev FROM Evento ev")
 public class Evento {
 	
 	@Id
@@ -41,11 +46,11 @@ public class Evento {
 	@Column(name = "max_partecipanti",nullable = false)
 	private Integer maxPartecipanti;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Location location;
 	
-	@OneToMany(mappedBy="evento")
-	private Set<Partecipazione> listaPartecipazione;
+	@OneToMany(mappedBy="evento",cascade = CascadeType.REMOVE)
+	private Set<Partecipazione> setPartecipazioni;
 	
 	
 	public Evento() {
@@ -55,7 +60,7 @@ public class Evento {
 
 
 	public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento,
-			Integer maxPartecipanti, Location location, Set<Partecipazione> listaPartecipazione) {
+			Integer maxPartecipanti, Location location, Set<Partecipazione> setPartecipazione) {
 		super();
 		this.titolo = titolo;
 		this.dataEvento = dataEvento;
@@ -63,7 +68,7 @@ public class Evento {
 		this.tipoEvento = tipoEvento;
 		this.maxPartecipanti = maxPartecipanti;
 		this.location = location;
-		this.listaPartecipazione = listaPartecipazione;
+		this.setPartecipazioni = setPartecipazione;
 	}
 
 
@@ -126,11 +131,40 @@ public class Evento {
 	}
 
 
+
+	public Location getLocation() {
+		return location;
+	}
+
+
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+
+
+	public Set<Partecipazione> getSetPartecipazioni() {
+		return setPartecipazioni;
+	}
+
+
+
+	public void setSetPartecipazioni(Set<Partecipazione> setPartecipazioni) {
+		this.setPartecipazioni = setPartecipazioni;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "Evento [id=" + id + ", titolo=" + titolo + ", dataEvento=" + dataEvento + ", tipoEvento=" + tipoEvento
-				+",Descrizione = "+ descrizione + ", maxPartecipanti=" + maxPartecipanti + "]";
+		return "Evento [id=" + id + ", titolo=" + titolo + ", dataEvento=" + dataEvento + ", descrizione=" + descrizione
+				+ ", tipoEvento=" + tipoEvento + ", maxPartecipanti=" + maxPartecipanti + ", location=" + location
+				+ ", setPartecipazioni=" + setPartecipazioni + "]";
 	}
+
+
+
 	
 	
 	

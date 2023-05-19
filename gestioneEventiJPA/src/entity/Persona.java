@@ -2,6 +2,7 @@ package entity;
 
 import java.nio.MappedByteBuffer;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,114 +15,100 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-
-
+import javax.persistence.OrderBy;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="persone")
+@NamedQuery(name="findAllPersone", query = "SELECT p FROM Persona p")
 public class Persona {
-	
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private	Integer id;
-@Column(nullable = false)
-private	String nome;
-@Column(nullable = false)
-private	String cognome;
-@Column(nullable = false,unique = true)
-private	String email;
-@Column(name= "data_nascita",nullable = false)
-private	LocalDate dataNascita;
-@Enumerated(EnumType.STRING)
-private	Sesso sesso;
-@OneToMany(mappedBy = "persona")
-private List<Partecipazione> listaPartecipazioni;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	@Column(nullable = false)
+	private String nome;
+	@Column(nullable = false)
+	private String cognome;
+	@Column(nullable = false, unique = true)
+	private String email;
+	@Column(name = "data_nascita", nullable = false)
+	private LocalDate dataNascita;
+	@Enumerated(EnumType.STRING)
+	private Sesso sesso;
+	@OneToMany(mappedBy = "persona",cascade = CascadeType.REMOVE)
+	@OrderBy(value = "evento.dataEvento")
+	private List<Partecipazione> listaPartecipazioni;
 
-public Persona() {
-	super();
-}
+	public Persona() {
+		super();
+	}
 
+	public Persona(String nome, String cognome, String email, LocalDate dataNascita, Sesso sesso)
+			 {
+		super();
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+		this.dataNascita = dataNascita;
+		this.sesso = sesso;
+		this.listaPartecipazioni = new  ArrayList<Partecipazione>();
+	}
 
-public Persona(String nome, String cognome, String email, LocalDate dataNascita, Sesso sesso,
-		List<Partecipazione> listaPartecipazioni) {
-	super();
-	this.nome = nome;
-	this.cognome = cognome;
-	this.email = email;
-	this.dataNascita = dataNascita;
-	this.sesso = sesso;
-	this.listaPartecipazioni = listaPartecipazioni;
-}
+	public String getNome() {
+		return nome;
+	}
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-public String getNome() {
-	return nome;
-}
+	public String getCognome() {
+		return cognome;
+	}
 
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
 
-public void setNome(String nome) {
-	this.nome = nome;
-}
+	public String getEmail() {
+		return email;
+	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-public String getCognome() {
-	return cognome;
-}
+	public LocalDate getDataNascita() {
+		return dataNascita;
+	}
 
+	public void setDataNascita(LocalDate dataNascita) {
+		this.dataNascita = dataNascita;
+	}
 
-public void setCognome(String cognome) {
-	this.cognome = cognome;
-}
+	public Sesso getSesso() {
+		return sesso;
+	}
 
+	public void setSesso(Sesso sesso) {
+		this.sesso = sesso;
+	}
 
-public String getEmail() {
-	return email;
-}
+	public List<Partecipazione> getListaPartecipazioni() {
+		return listaPartecipazioni;
+	}
 
+	public void setListaPartecipazioni(List<Partecipazione> listaPartecipazioni) {
+		this.listaPartecipazioni = listaPartecipazioni;
+	}
 
-public void setEmail(String email) {
-	this.email = email;
-}
-
-
-public LocalDate getDataNascita() {
-	return dataNascita;
-}
-
-
-public void setDataNascita(LocalDate dataNascita) {
-	this.dataNascita = dataNascita;
-}
-
-
-public Sesso getSesso() {
-	return sesso;
-}
-
-
-public void setSesso(Sesso sesso) {
-	this.sesso = sesso;
-}
-
-
-public List<Partecipazione> getListaPartecipazioni() {
-	return listaPartecipazioni;
-}
-
-
-public void setListaPartecipazioni(List<Partecipazione> listaPartecipazioni) {
-	this.listaPartecipazioni = listaPartecipazioni;
-}
-
-
-@Override
-public String toString() {
-	return "Persona [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", email=" + email + ", dataNascita="
-			+ dataNascita + ", sesso=" + sesso + ", listaPartecipazioni=" + listaPartecipazioni + "]";
-}
-
-
-
+	@Override
+	public String toString() {
+		return "Persona [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", email=" + email + ", dataNascita="
+				+ dataNascita + ", sesso=" + sesso + ", listaPartecipazioni=" + listaPartecipazioni + "]";
+	}
 
 }

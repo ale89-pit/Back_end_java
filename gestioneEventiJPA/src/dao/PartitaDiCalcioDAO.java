@@ -5,16 +5,17 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import entity.Evento;
+import entity.Partecipazione;
+import entity.PartitaDiCalcio;
 import utils.JpaUtil;
 
-public class EventoDAO implements IEventoDAO {
-
-	public void save(Evento ev) {
+public class PartitaDiCalcioDAO implements IPartitaDiCalcioDAO {
+	@Override
+	public void save(PartitaDiCalcio p) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			em.persist(ev);
+			em.persist(p);
 			em.getTransaction().commit();
 			System.out.println("Evento salvato nel DB!!");
 		} catch (Exception e) {
@@ -23,14 +24,15 @@ public class EventoDAO implements IEventoDAO {
 		} finally {
 			em.close();
 		}
+
 	}
 
 	@Override
-	public Evento getById(int id) {
+	public PartitaDiCalcio getById(int id) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
-			Evento evt =  em.find(Evento.class, id);
+			PartitaDiCalcio evt =  em.find(PartitaDiCalcio.class, id);
 			em.getTransaction().commit();
 			return evt;
 		} catch (Exception e) {
@@ -43,7 +45,7 @@ public class EventoDAO implements IEventoDAO {
 	}
 
 	@Override
-	public void delete(Evento ev) {
+	public void delete(PartitaDiCalcio ev) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -60,7 +62,7 @@ public class EventoDAO implements IEventoDAO {
 	}
 
 	@Override
-	public void update(Evento ev) {
+	public void update(PartitaDiCalcio ev) {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			em.getTransaction().begin();
@@ -77,52 +79,18 @@ public class EventoDAO implements IEventoDAO {
 	}
 
 	@Override
-	public List<Evento> getAll() {
+	public List<PartitaDiCalcio> getAll() {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			// Dynamic Query 
 			//Query q = em.createQuery("SELECT ev FROM Evento ev");
 			// Named Query
-			Query q = em.createNamedQuery("findAllEventi");
+			Query q = em.createNamedQuery("findAllPartecipazioni");
 			return q.getResultList();
 		} finally {
 			em.close();
 		}
-	
 	}
 
-	
 
-//public static void inserisciEvento(Evento e ) {
-//	em.getTransaction().begin();
-//	em.persist(e);
-//	em.getTransaction().commit();
-//	System.out.println(e.getTitolo() + "" + e.getDataEvento() + "aggiunto nel database");
-//
-//}
-//
-//public static void modificaEvento(Evento c) {
-//	em.getTransaction().begin();
-//	em.merge(c);
-//	em.getTransaction().commit();
-//}
-//
-//public static void eliminaEvento(Evento c) {
-//	em.getTransaction().begin();
-//	em.remove(c);
-//	em.getTransaction().commit();
-//}
-//
-//public static Evento leggiEvento (Integer id) {
-//	em.getTransaction().begin();
-//	Evento e = em.find(Evento.class, id);
-//	em.getTransaction().commit();
-//	return e;
-//}
-//public static Evento restore(Evento e) {
-//	em.refresh(e);
-//	return e;
-//	
-//	
-//}
 }

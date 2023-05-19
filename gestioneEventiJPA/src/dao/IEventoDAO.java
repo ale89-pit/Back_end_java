@@ -1,13 +1,15 @@
 package dao;
 
+import java.util.List;
+
 import entity.Evento;
 
 public interface IEventoDAO {
-	public void inserisciEvento(Evento e );
-	public void modificaEvento(Evento c);
-	public void eliminaEvento(Evento c);
-	public Evento leggiEvento (Integer id);
-	public Evento restore(Evento e);
+	public void save(Evento e);
+	public Evento getById(int id);
+	public void delete(Evento e);
+	public void update(Evento e);
+	public List<Evento> getAll();
 	
 	
 	
