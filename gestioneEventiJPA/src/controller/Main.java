@@ -45,7 +45,7 @@ public class Main {
 		PartitaDiCalcioDAO a = new PartitaDiCalcioDAO() ;
 		
 		JpaUtil.getEntityManagerFactory().createEntityManager();
-		Location luogo1 = new Location("Roma","Roma");
+//		Location luogo1 = new Location("Roma","Roma");
 		Set<Partecipazione> lista = new HashSet<Partecipazione>();
 		
 		EventoDAO a1 = new EventoDAO();
@@ -62,10 +62,10 @@ public class Main {
 //		p.setSquadraVincente("Roma");
 //		p.setTipoEvento(TipoEvento.PUBBLICO);
 		
-		Evento evento1 = new Evento("Titolo",LocalDate.of(2023,5,14),"descrizione",TipoEvento.PRIVATO,200,luogo1,lista);
+//		Evento evento1 = new Evento("Titolo",LocalDate.of(2023,5,14),"descrizione",TipoEvento.PRIVATO,200,luogo1,lista);
 //		a.save(p);
 		
-		a1.save(evento1);
+//		a1.save(evento1);
 		
 //		
 //		a.inserisciEvento(new Evento("Festa",LocalDate.of(2023, 8, 15),"festone gigante",TipoEvento.PUBBLICO,500));

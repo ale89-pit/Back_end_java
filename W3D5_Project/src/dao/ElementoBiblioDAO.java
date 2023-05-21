@@ -99,7 +99,7 @@ public class ElementoBiblioDAO implements IElementoBiblioDAO {
 		try {
 			// Dynamic Query 
 			Query q = em.createQuery("SELECT el FROM ElementoBiblio el WHERE el.annoPublicazione = :anno");
-			;
+			
 			// Named Query
 			//Query q = em.createNamedQuery("findAllEventi");
 			return q.setParameter("anno", anno).getResultList();
@@ -112,11 +112,24 @@ public class ElementoBiblioDAO implements IElementoBiblioDAO {
 		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 		try {
 			// Dynamic Query 			SELECT elementobiblio.title FROM elementobiblio WHERE elementobiblio.autore = 'pippo'
-			Query q = em.createQuery("SELECT ele FROM ElementoBiblio ele WHERE ele.autore = :aut");
+			Query q = em.createQuery("SELECT ele FROM ElementoBiblio ele WHERE ele.autore = '"+a+"'");
+			
+			// Named Query
+//			Query q = em.createNamedQuery("findAllEventi");
+			return q.getResultList();
+		} finally {
+			em.close();
+		}
+	}
+	public List<ElementoBiblio> getByPart(String a) {
+		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+		try {
+			// Dynamic Query 			SELECT elementobiblio.title FROM elementobiblio WHERE elementobiblio.autore = 'pippo'
+			Query q = em.createQuery("SELECT ele FROM ElementoBiblio ele WHERE ele.title LIKE '%"+a+"%'");
 			;
 			// Named Query
 			//Query q = em.createNamedQuery("findAllEventi");
-			return q.setParameter(":aut", a).getResultList();
+			return q.getResultList();
 		} finally {
 			em.close();
 		}

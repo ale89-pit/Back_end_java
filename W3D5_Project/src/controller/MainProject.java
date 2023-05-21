@@ -30,35 +30,41 @@ public class MainProject {
 //			ElementoBiblio d = new Rivista("rfgt34", "titolo444",2020,50, Periodicita.SETTIMANALE);
 //			ElementoBiblio e = new Book("swe4", "titolo555", 2000, 200, "autore", "a");
 //			ElementoBiblio f = new Rivista("trt534", "titolo666",1995,50, Periodicita.SEMESTRALE);
-//			ElementoBiblio g = new Book("sdf34324", "titolo777",1999, 200, "recchia", "a");
+//			ElementoBiblio g = new Book("qwer345", "titolo777",2010, 280, "pippo", "b");
 //			ElementoBiblio h = new Rivista("rft4534", "titolo888", 1972, 50, Periodicita.MENSILE);
 //			
 			ElementoBiblioDAO eleDao= new ElementoBiblioDAO();
 			PrestitoDAO prestDao = new PrestitoDAO();
 			UtenteDAO uteDao = new UtenteDAO();
-//			ele.save(l);
-//			ele.save(b);
-//			ele.save(c);
-//			ele.save(d);
-//			ele.save(e);
-//			ele.save(f);
-//			ele.save(g);
-//			ele.save(h);
+//			eleDao.save(g);
+//			eleDao.save(b);
+//			eleDao.save(c);
+//			eleDao.save(d);
+//			eleDao.save(e);
+//			eleDao.save(f);
+//			eleDao.save(g);
+//			eleDao.save(h);
 //			
-//			Utente primo = new Utente("Mario","Rossi",LocalDate.of(1973,7,25));
+//			Utente primo = new Utente("Sbirulino","verdi",LocalDate.of(2006,7,25));
 //			Utente secondo = new Utente("Veronica","Neri",LocalDate.of(2006,12,25));
 //			UtenteDAO uDao = new UtenteDAO();
 //			uDao.save(secondo);
-//			uDao.save(primo);
-			ElementoBiblio elementoDaPrestare = eleDao.getById("sdf34324");
-			Utente u = uteDao.getById(1000);
-//			Prestito nuovoPrestito = new Prestito(u,elementoDaPrestare);
-			
+//			
+//			uteDao.save(primo);
+//			ElementoBiblio elementoDaPrestare = eleDao.getById("trt534");
+//			Utente u = uteDao.getById(1000);
+//			Prestito nuovoPrestito = new Prestito(u,elementoDaPrestare,LocalDate.of(2023, 1, 31));
+////			Prestito nd = new Prestito(uteDao.getById(1001), eleDao.getById("gtrt453"));
+//			
 //			prestDao.save(nuovoPrestito);
 //			eleDao.getAllByAnno(2020).forEach(el-> System.out.println(el));
-			List<ElementoBiblio> listaByAutore = eleDao.getAllByAutore("pippo");
-			listaByAutore.forEach(el-> System.out.println(el));
+//			List<ElementoBiblio> listaByAutore = eleDao.getAllByAutore("pippo");
+//			listaByAutore.forEach(el-> System.out.println(el));
+//			eleDao.getByPart("77").forEach(e->System.out.println(e));;
 			
-	}
+			prestDao.getByNumeroTessere(1001).forEach(e ->System.out.println(e) );
+			List<Prestito> listaPrestitiScaduti = prestDao.getPrestitiScaduti(); 
+			listaPrestitiScaduti.forEach(e ->System.out.println(e));
+	}	
 
 }

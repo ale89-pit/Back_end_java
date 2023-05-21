@@ -12,4 +12,7 @@ public interface IElementoBiblioDAO {
 	public void delete(ElementoBiblio e);
 	public void update(ElementoBiblio e);
 	public List<ElementoBiblio> getAll();
+	public List<ElementoBiblio> getByPart(String a);
+	public List<ElementoBiblio> getAllByAutore(String a) ;
+	public List<ElementoBiblio> getAllByAnno(Integer anno);
 }

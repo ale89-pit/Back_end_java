@@ -13,4 +13,6 @@ public interface IPrestitoDAO {
 	public void delete(Prestito e);
 	public void update(Prestito e);
 	public List<Prestito> getAll();
+	public List<Prestito> getByNumeroTessere(Integer nTess);
+	public List<Prestito> getPrestitiScaduti();
 }

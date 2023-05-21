@@ -92,5 +92,28 @@ public class PrestitoDAO implements IPrestitoDAO {
 			em.close();
 		}
 	}
-
+	public List<Prestito> getByNumeroTessere(Integer nTess) {
+		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+		try {
+			// Dynamic Query 	SELECT * FROM prestito WHERE utente_numerotessera = 1001
+			Query q = em.createQuery("SELECT p FROM Prestito p WHERE p.utente ="+nTess );
+			// Named Query
+//			Query q = em.createNamedQuery("findAllEventi");
+			return q.getResultList();
+		} finally {
+			em.close();
+		}
+	}
+	public List<Prestito> getPrestitiScaduti() {
+		EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+		try {
+			// Dynamic Query 	SELECT * FROM prestito WHERE utente_numerotessera = 1001
+			Query q = em.createQuery("SELECT p FROM Prestito p WHERE(NOW()>p.dataRestituzionePrevista  AND p.dataRestituzioneEffettiva is NULL)");
+			// Named Query
+//			Query q = em.createNamedQuery("findAllEventi");
+			return q.getResultList();
+		} finally {
+			em.close();
+		}
+	}
 }

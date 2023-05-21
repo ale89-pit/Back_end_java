@@ -48,6 +48,15 @@ public class Prestito {
 	}
 
 
+	public Prestito(Utente utente, ElementoBiblio elementoPrestato, LocalDate dataInizioPrestito) {
+		super();
+		this.utente = utente;
+		this.elementoPrestato = elementoPrestato;
+		this.dataInizioPrestito = dataInizioPrestito;
+		this.dataRestituzionePrevista =dataInizioPrestito.plusDays(30);
+	}
+
+
 	public Integer getId() {
 		return id;
 	}
