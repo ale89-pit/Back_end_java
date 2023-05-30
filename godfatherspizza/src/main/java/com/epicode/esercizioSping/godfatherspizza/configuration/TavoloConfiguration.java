@@ -4,12 +4,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
-@Configuration
-public class ConfigurationTopping {
+import com.epicode.esercizioSping.godfatherspizza.model.Tavolo;
 
-		@Bean
-		@Scope("prototype")
-		public Topping topping(String name,Integer calories, Double price) {
-			return new Topping(name,calories,price);
-		}
+@Configuration
+public class TavoloConfiguration {
+		
+	@Bean
+	@Scope("prototype")
+	public Tavolo tavolo() {
+		return new Tavolo();
+	}
 }
