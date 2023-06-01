@@ -11,7 +11,13 @@ public class TavoloConfiguration {
 		
 	@Bean
 	@Scope("prototype")
-	public Tavolo tavolo() {
-		return new Tavolo();
+	public Tavolo tavolo(Integer numeroTavolo,Integer maxPersone) {
+		return new Tavolo(numeroTavolo,maxPersone);
 	}
+	
+//	@Bean
+//	@Scope("prototype")
+//	public Tavolo tavolo() {
+//		return new Tavolo();
+//	}
 }

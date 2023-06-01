@@ -7,9 +7,11 @@ import java.util.Map;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import com.epicode.esercizioSping.godfatherspizza.model.DrinkLemonade;
 import com.epicode.esercizioSping.godfatherspizza.model.DrinkWater;
+import com.epicode.esercizioSping.godfatherspizza.model.DrinkWine;
 import com.epicode.esercizioSping.godfatherspizza.model.Drinks;
 import com.epicode.esercizioSping.godfatherspizza.model.FoodItem;
 import com.epicode.esercizioSping.godfatherspizza.model.FranchiseMug;
@@ -45,6 +47,7 @@ public class MenuConfiguration {
 		
 		m.getMenuDrink().add(drinkLemonade());
 		m.getMenuDrink().add(drinkWater());
+		m.getMenuDrink().add(drinkWine());
 		
 		m.getMenuTopping().add(toppingCheese());
 		m.getMenuTopping().add(toppingOnions());
@@ -73,6 +76,7 @@ public class MenuConfiguration {
 	}
 	
 	@Bean
+	@Scope("prototype")
 	public PizzaFamilySize pizzaFamilySize(Pizza p) {
 		return new PizzaFamilySize(p);
 	}
@@ -85,6 +89,10 @@ public class MenuConfiguration {
 	@Bean
 	public Drinks drinkWater() {
 		return new DrinkWater();
+	}
+	@Bean
+	public Drinks drinkWine() {
+		return new DrinkWine();
 	}
 	
 	@Bean

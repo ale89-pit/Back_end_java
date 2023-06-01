@@ -5,14 +5,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
 @Data
-@Builder
+//@Builder
 public class Tavolo {
 	
 	private Integer numeroTavolo;
 	private Integer maxPersone;
-	private Stato stato;
+	private Boolean occupato = false;
+	
+	
+	public Tavolo(Integer numeroTavolo, Integer maxPersone) {
+		super();
+		this.numeroTavolo = numeroTavolo;
+		this.maxPersone = maxPersone;
+		this.occupato = false;
+	}
 	
 }

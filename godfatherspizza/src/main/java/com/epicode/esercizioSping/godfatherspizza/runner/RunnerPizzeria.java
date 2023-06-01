@@ -13,11 +13,11 @@ public class RunnerPizzeria implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		configWith_Bean();
+		configMenuWith_Bean();
 		
 	}
 	
-	public static void configWith_Bean() {
+	public static void configMenuWith_Bean() {
 		// Creo un Container dove utilizzare i bean sulla base del file di configurazione ConfigurationTest creato
 		AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext(MenuConfiguration.class);
 		
