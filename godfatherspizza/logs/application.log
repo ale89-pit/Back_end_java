@@ -3,3 +3,8 @@
 11:46:22.842 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
 11:46:23.255 - LiveReload server is running on port 35729
 11:46:23.266 - Started GodfatherspizzaApplication in 0.757 seconds (process running for 1.247)
+16:11:59.669 - Starting GodfatherspizzaApplication using Java 17.0.7 with PID 17812 (C:\Users\Aless\eclipse-workspace\godfatherspizza\target\classes started by Aless in C:\Users\Aless\eclipse-workspace\godfatherspizza)
+16:11:59.670 - No active profile set, falling back to 1 default profile: "default"
+16:11:59.705 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+16:12:00.113 - LiveReload server is running on port 35729
+16:12:00.125 - Started GodfatherspizzaApplication in 0.772 seconds (process running for 1.209)
