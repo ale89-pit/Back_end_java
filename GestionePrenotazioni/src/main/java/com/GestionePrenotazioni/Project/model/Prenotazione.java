@@ -35,4 +35,13 @@ public class Prenotazione {
 	private Postazione postazione;
 	private LocalDate giornoPrenotazione;
 	private LocalDate scadenzaPrenotazione;
+	public Prenotazione(Utente utente, Postazione postazione, LocalDate giornoPrenotazione) {
+		super();
+		this.utente = utente;
+		this.postazione = postazione;
+		this.giornoPrenotazione = giornoPrenotazione;
+		this.scadenzaPrenotazione = giornoPrenotazione.plusDays(1);
+	}
+	
+	
 }

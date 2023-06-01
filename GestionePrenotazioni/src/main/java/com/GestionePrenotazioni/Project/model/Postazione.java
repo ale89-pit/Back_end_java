@@ -37,7 +37,19 @@ public class Postazione {
 	private Edificio edificio;
 	@Column(nullable = false)
 	private Integer numMaxPostazioni;
-	@OneToMany
-	@JoinColumn(name="lista_prenotazione")
-	private List<Prenotazione> lsitaPrenotazioni;
+//	@OneToMany
+//	@JoinColumn(name="lista_prenotazione")
+//	private List<Prenotazione> lsitaPrenotazioni;
+	
+	
+	
+	public Postazione(String descrizione, TipoPostazione tipo, Edificio edificio, Integer numMaxPostazioni) {
+		super();
+		this.descrizione = descrizione;
+		this.tipo = tipo;
+		this.edificio = edificio;
+		this.numMaxPostazioni = numMaxPostazioni;
+	}
+	
+	
 }

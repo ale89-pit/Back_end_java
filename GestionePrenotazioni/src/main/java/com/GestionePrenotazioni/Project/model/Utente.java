@@ -41,9 +41,9 @@ public class Utente {
 	@Column(unique = true, nullable = false)
 	private String email;
 	
-	@ManyToMany
-	@JoinColumn(name="lista_prenotazione")
-	private List<Prenotazione> listaPrenotazioni = new ArrayList<Prenotazione>();
+//	@ManyToMany
+//	@JoinColumn(name="lista_prenotazione")
+//	private List<Prenotazione> listaPrenotazioni = new ArrayList<Prenotazione>();
 
 	public Utente(String userName, String nome, String cognome, String email) {
 		super();
