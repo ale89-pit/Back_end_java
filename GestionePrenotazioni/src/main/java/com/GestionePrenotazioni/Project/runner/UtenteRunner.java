@@ -1,10 +1,12 @@
 package com.GestionePrenotazioni.Project.runner;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import com.GestionePrenotazioni.Project.model.TipoPostazione;
 import com.GestionePrenotazioni.Project.model.Utente;
 import com.GestionePrenotazioni.Project.service.UtenteService;
 
@@ -18,6 +20,7 @@ public class UtenteRunner implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Utente Run....");
+		utenteService.findPostazioneCitta(TipoPostazione.OPENSPACE, "Quasimodo lido").forEach(a->System.out.println(a.getId()+" " +a.getEdificio()));
 //
 //		Utente u1 = utenteService.createAdminUser();
 //		utenteService.insertUtente(u1);

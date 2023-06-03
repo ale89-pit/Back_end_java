@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import com.GestionePrenotazioni.Project.model.Postazione;
 import com.GestionePrenotazioni.Project.model.Prenotazione;
+import com.GestionePrenotazioni.Project.model.TipoPostazione;
 import com.GestionePrenotazioni.Project.model.Utente;
 import com.GestionePrenotazioni.Project.service.EdificioService;
 import com.GestionePrenotazioni.Project.service.PostazioneService;
@@ -31,13 +32,16 @@ public class PrenotazioneRunnre implements ApplicationRunner {
 		List<Utente> listaUtenti = utenteService.getAll();
 		List<Postazione> listaPostazioni = postazioneService.getAll();
 //		
-		for(int i = 0;i<10;i++) {
-			Utente u = listaUtenti.get(Faker.instance().random().nextInt(0, 9));
-			Postazione p = listaPostazioni.get(Faker.instance().random().nextInt(0, 4));
-			Prenotazione prenotazione = prenotazioneService.creaPrenotazione(u, p,Faker.instance().date().future(10, TimeUnit.DAYS).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-			prenotazioneService.insertPrenotazione(prenotazione);
-			
-		}
+//		for(int i = 0;i<10;i++) {
+//			Utente u = listaUtenti.get(Faker.instance().random().nextInt(0, 9));
+//			Postazione p = listaPostazioni.get(Faker.instance().random().nextInt(0, 4));
+//			Prenotazione prenotazione = prenotazioneService.creaPrenotazione(u, p,Faker.instance().date().future(10, TimeUnit.DAYS).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+//			prenotazioneService.insertPrenotazione(prenotazione);
+//			
+//		}
+		
+		
+		
 //		System.out.println(u);
 //		System.out.println(p);
 ////		Prenotazione prenotazione = prenotazioneService.getByID(1);

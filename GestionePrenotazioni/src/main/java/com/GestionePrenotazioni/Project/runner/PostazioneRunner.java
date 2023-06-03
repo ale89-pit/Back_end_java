@@ -24,7 +24,7 @@ public class PostazioneRunner implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Postazione Run........");
 		List<Edificio> listaEdifici = edificioService.getAll();
-	System.out.println(listaEdifici.get(1));
+//	System.out.println(listaEdifici.get(1));
 	
 	
 //	for(int i = 0;i<5;i++) {
