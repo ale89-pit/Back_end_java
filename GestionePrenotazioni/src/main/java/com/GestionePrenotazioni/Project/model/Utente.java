@@ -44,7 +44,7 @@ public class Utente {
 	private String email;
 	
 	@ManyToMany(targetEntity = Prenotazione.class, fetch = FetchType.EAGER)
-	@JoinTable(name="prenotazioni_lista_utenti",joinColumns =   	@JoinColumn(name="prenotazione_id"),inverseJoinColumns = @JoinColumn(name="utente_id"))
+	@JoinTable(name="prenotazioni_lista_utenti",joinColumns =   	@JoinColumn(name="utente_id"),inverseJoinColumns = @JoinColumn(name="prenotazione_id"))
 	private List<Prenotazione> listaPrenotazioni = new ArrayList<Prenotazione>();
 
 	public Utente(String userName, String nome, String cognome, String email) {

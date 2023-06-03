@@ -53,7 +53,7 @@ public class UtenteService {
 		 return	utente_dao.findAll();
 		}
 	public List<Postazione> findPostazioneCitta(TipoPostazione tipo, String citta){
-		List<Postazione> listaSearch = utente_dao.findPostazioneCitta(tipo, citta);
-		return listaSearch;
+		return  utente_dao.findPostazioneCitta(tipo, citta);
+		
 	}
 }

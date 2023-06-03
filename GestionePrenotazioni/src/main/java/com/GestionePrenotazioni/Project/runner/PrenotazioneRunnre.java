@@ -32,13 +32,16 @@ public class PrenotazioneRunnre implements ApplicationRunner {
 		List<Utente> listaUtenti = utenteService.getAll();
 		List<Postazione> listaPostazioni = postazioneService.getAll();
 //		
-//		for(int i = 0;i<10;i++) {
-//			Utente u = listaUtenti.get(Faker.instance().random().nextInt(0, 9));
-//			Postazione p = listaPostazioni.get(Faker.instance().random().nextInt(0, 4));
-//			Prenotazione prenotazione = prenotazioneService.creaPrenotazione(u, p,Faker.instance().date().future(10, TimeUnit.DAYS).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-//			prenotazioneService.insertPrenotazione(prenotazione);
-//			
-//		}
+		for(int i = 0;i<20;i++) {
+			Utente u = listaUtenti.get(Faker.instance().random().nextInt(0, 9));
+//			Utente u = utenteService.getByID(2);
+			Postazione p = listaPostazioni.get(Faker.instance().random().nextInt(0, 4));
+//			Postazione p = postazioneService.getByID(9);
+			Prenotazione prenotazione = prenotazioneService.creaPrenotazione(u, p,Faker.instance().date().future(10, TimeUnit.DAYS).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+			prenotazioneService.insertPrenotazione(prenotazione);
+			u.getListaPrenotazioni().add(prenotazione);
+			utenteService.updateUtente(u);
+		}
 		
 		
 		

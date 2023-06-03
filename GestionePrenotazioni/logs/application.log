@@ -947,3 +947,379 @@ Caused by: org.hibernate.query.SemanticException: Could not interpret path expre
 16:13:57.988 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 16:13:57.990 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 16:13:57.992 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+16:54:36.882 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - Starting GestionePrenotazioniApplication using Java 17.0.7 with PID 18768 (C:\Users\Aless\eclipse-workspace\GestionePrenotazioni\target\classes started by Aless in C:\Users\Aless\eclipse-workspace\GestionePrenotazioni)
+16:54:36.884 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - No active profile set, falling back to 1 default profile: "default"
+16:54:36.914 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+16:54:37.166 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:54:37.205 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 4 JPA repository interfaces.
+16:54:37.423 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:54:37.457 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+16:54:37.458 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+16:54:37.548 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+16:54:37.629 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+16:54:37.639 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:54:37.758 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4c62686a
+16:54:37.759 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:54:37.791 [restartedMain] INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@55a95604
+16:54:37.956 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+16:54:38.396 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:54:38.462 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:54:38.645 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+16:54:38.934 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:54:38.947 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - Started GestionePrenotazioniApplication in 2.29 seconds (process running for 2.735)
+16:54:39.119 [restartedMain] INFO  c.G.Project.service.UtenteService - Fiorenzo Bernardi MODIFICATO NEL DB
+16:54:39.126 [restartedMain] INFO  c.G.Project.service.UtenteService - Selvaggia Gentile MODIFICATO NEL DB
+16:54:39.134 [restartedMain] INFO  c.G.Project.service.UtenteService - Guendalina Costa MODIFICATO NEL DB
+16:54:39.142 [restartedMain] INFO  c.G.Project.service.UtenteService - Alessio Pitorri MODIFICATO NEL DB
+16:54:39.148 [restartedMain] INFO  c.G.P.service.PrenotazioneService - Postazione gia occupata per la data di prenotazione
+16:54:39.156 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+16:54:39.169 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute ApplicationRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:764)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:751)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294)
+	at com.GestionePrenotazioni.Project.GestionePrenotazioniApplication.main(GestionePrenotazioniApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.GestionePrenotazioni.Project.model.Prenotazione
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:368)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:234)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:565)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:660)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:410)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:163)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy4/jdk.proxy4.$Proxy108.save(Unknown Source)
+	at com.GestionePrenotazioni.Project.service.UtenteService.updateUtente(UtenteService.java:42)
+	at com.GestionePrenotazioni.Project.runner.PrenotazioneRunnre.run(PrenotazioneRunnre.java:41)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:761)
+	... 10 common frames omitted
+Caused by: java.lang.IllegalStateException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.GestionePrenotazioni.Project.model.Prenotazione
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:152)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:162)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:168)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1416)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:485)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2296)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1961)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:561)
+	... 27 common frames omitted
+Caused by: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.GestionePrenotazioni.Project.model.Prenotazione
+	at org.hibernate.metamodel.mapping.EntityIdentifierMapping.getIdentifierIfNotUnsaved(EntityIdentifierMapping.java:100)
+	at org.hibernate.metamodel.mapping.internal.SimpleForeignKeyDescriptor.getAssociationKeyFromSide(SimpleForeignKeyDescriptor.java:498)
+	at org.hibernate.metamodel.mapping.internal.ManyToManyCollectionPart.decompose(ManyToManyCollectionPart.java:173)
+	at org.hibernate.persister.collection.BasicCollectionPersister.applyInsertRowValues(BasicCollectionPersister.java:395)
+	at org.hibernate.persister.collection.mutation.InsertRowsCoordinatorStandard.insertRows(InsertRowsCoordinatorStandard.java:110)
+	at org.hibernate.persister.collection.BasicCollectionPersister.recreate(BasicCollectionPersister.java:114)
+	at org.hibernate.action.internal.CollectionUpdateAction.execute(CollectionUpdateAction.java:80)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:618)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:489)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:486)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:358)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1412)
+	... 35 common frames omitted
+16:54:39.175 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+16:54:39.177 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:54:39.179 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+16:55:41.379 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - Starting GestionePrenotazioniApplication using Java 17.0.7 with PID 20688 (C:\Users\Aless\eclipse-workspace\GestionePrenotazioni\target\classes started by Aless in C:\Users\Aless\eclipse-workspace\GestionePrenotazioni)
+16:55:41.380 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - No active profile set, falling back to 1 default profile: "default"
+16:55:41.410 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+16:55:41.664 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:55:41.703 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 33 ms. Found 4 JPA repository interfaces.
+16:55:41.916 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:55:41.948 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+16:55:41.950 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+16:55:42.038 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+16:55:42.120 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+16:55:42.130 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:55:42.368 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@796bbd71
+16:55:42.369 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:55:42.400 [restartedMain] INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@22dfc7a6
+16:55:42.563 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+16:55:42.999 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:55:43.070 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:55:43.250 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+16:55:43.540 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:55:43.554 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - Started GestionePrenotazioniApplication in 2.403 seconds (process running for 2.849)
+16:55:43.681 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+16:55:43.683 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:55:43.685 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+16:56:54.570 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - Starting GestionePrenotazioniApplication using Java 17.0.7 with PID 19420 (C:\Users\Aless\eclipse-workspace\GestionePrenotazioni\target\classes started by Aless in C:\Users\Aless\eclipse-workspace\GestionePrenotazioni)
+16:56:54.572 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - No active profile set, falling back to 1 default profile: "default"
+16:56:54.601 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+16:56:54.853 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:56:54.891 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 33 ms. Found 4 JPA repository interfaces.
+16:56:55.104 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:56:55.137 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+16:56:55.138 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+16:56:55.229 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+16:56:55.310 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+16:56:55.320 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:56:55.443 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@67c0a4d2
+16:56:55.444 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:56:55.476 [restartedMain] INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@623b360e
+16:56:55.636 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+16:56:56.075 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:56:56.146 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:56:56.337 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+16:56:56.626 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:56:56.640 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - Started GestionePrenotazioniApplication in 2.297 seconds (process running for 2.747)
+16:56:56.811 [restartedMain] INFO  c.G.Project.service.UtenteService - Alessandro Benedetti MODIFICATO NEL DB
+16:56:56.820 [restartedMain] INFO  c.G.Project.service.UtenteService - Fiorenzo Bernardi MODIFICATO NEL DB
+16:56:56.830 [restartedMain] INFO  c.G.Project.service.UtenteService - Fiorenzo Bernardi MODIFICATO NEL DB
+16:56:56.836 [restartedMain] INFO  c.G.P.service.PrenotazioneService - Postazione gia occupata per la data di prenotazione
+16:56:56.844 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+16:56:56.857 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute ApplicationRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:764)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:751)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294)
+	at com.GestionePrenotazioni.Project.GestionePrenotazioniApplication.main(GestionePrenotazioniApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.GestionePrenotazioni.Project.model.Prenotazione
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:368)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:234)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:565)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:660)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:410)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:163)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy4/jdk.proxy4.$Proxy108.save(Unknown Source)
+	at com.GestionePrenotazioni.Project.service.UtenteService.updateUtente(UtenteService.java:42)
+	at com.GestionePrenotazioni.Project.runner.PrenotazioneRunnre.run(PrenotazioneRunnre.java:41)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:761)
+	... 10 common frames omitted
+Caused by: java.lang.IllegalStateException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.GestionePrenotazioni.Project.model.Prenotazione
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:152)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:162)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:168)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1416)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:485)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2296)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1961)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:561)
+	... 27 common frames omitted
+Caused by: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.GestionePrenotazioni.Project.model.Prenotazione
+	at org.hibernate.metamodel.mapping.EntityIdentifierMapping.getIdentifierIfNotUnsaved(EntityIdentifierMapping.java:100)
+	at org.hibernate.metamodel.mapping.internal.SimpleForeignKeyDescriptor.getAssociationKeyFromSide(SimpleForeignKeyDescriptor.java:498)
+	at org.hibernate.metamodel.mapping.internal.ManyToManyCollectionPart.decompose(ManyToManyCollectionPart.java:173)
+	at org.hibernate.persister.collection.BasicCollectionPersister.applyInsertRowValues(BasicCollectionPersister.java:395)
+	at org.hibernate.persister.collection.mutation.InsertRowsCoordinatorStandard.insertRows(InsertRowsCoordinatorStandard.java:110)
+	at org.hibernate.persister.collection.BasicCollectionPersister.recreate(BasicCollectionPersister.java:114)
+	at org.hibernate.action.internal.CollectionUpdateAction.execute(CollectionUpdateAction.java:80)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:618)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:489)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:486)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:358)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1412)
+	... 35 common frames omitted
+16:56:56.863 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+16:56:56.865 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:56:56.866 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+16:58:37.676 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - Starting GestionePrenotazioniApplication using Java 17.0.7 with PID 20168 (C:\Users\Aless\eclipse-workspace\GestionePrenotazioni\target\classes started by Aless in C:\Users\Aless\eclipse-workspace\GestionePrenotazioni)
+16:58:37.678 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - No active profile set, falling back to 1 default profile: "default"
+16:58:37.706 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+16:58:37.958 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:58:37.996 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 4 JPA repository interfaces.
+16:58:38.211 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:58:38.244 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+16:58:38.246 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+16:58:38.335 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+16:58:38.415 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+16:58:38.425 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:58:38.547 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2514c70d
+16:58:38.548 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:58:38.578 [restartedMain] INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@7162968f
+16:58:38.739 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+16:58:39.175 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:58:39.246 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:58:39.428 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+16:58:39.728 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:58:39.741 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - Started GestionePrenotazioniApplication in 2.293 seconds (process running for 2.745)
+16:58:39.915 [restartedMain] INFO  c.G.Project.service.UtenteService - Fiorenzo Bernardi MODIFICATO NEL DB
+16:58:39.924 [restartedMain] INFO  c.G.Project.service.UtenteService - Fiorentino Donati MODIFICATO NEL DB
+16:58:39.936 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+16:58:39.938 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:58:39.940 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+17:01:57.824 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - Starting GestionePrenotazioniApplication using Java 17.0.7 with PID 14784 (C:\Users\Aless\eclipse-workspace\GestionePrenotazioni\target\classes started by Aless in C:\Users\Aless\eclipse-workspace\GestionePrenotazioni)
+17:01:57.826 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - No active profile set, falling back to 1 default profile: "default"
+17:01:57.854 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+17:01:58.104 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+17:01:58.143 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 4 JPA repository interfaces.
+17:01:58.359 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17:01:58.393 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+17:01:58.394 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+17:01:58.484 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+17:01:58.568 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+17:01:58.579 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17:01:58.699 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@796bbd71
+17:01:58.701 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17:01:58.733 [restartedMain] INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@22dfc7a6
+17:01:58.895 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+17:01:59.343 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+17:01:59.414 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:01:59.608 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+17:01:59.898 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+17:01:59.912 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - Started GestionePrenotazioniApplication in 2.315 seconds (process running for 2.774)
+17:02:00.090 [restartedMain] INFO  c.G.Project.service.UtenteService - Concetta Leone MODIFICATO NEL DB
+17:02:00.102 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+17:02:00.104 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+17:02:00.106 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+17:12:42.770 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - Starting GestionePrenotazioniApplication using Java 17.0.7 with PID 14216 (C:\Users\Aless\eclipse-workspace\GestionePrenotazioni\target\classes started by Aless in C:\Users\Aless\eclipse-workspace\GestionePrenotazioni)
+17:12:42.772 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - No active profile set, falling back to 1 default profile: "default"
+17:12:42.801 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+17:12:43.055 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+17:12:43.094 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 4 JPA repository interfaces.
+17:12:43.309 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17:12:43.342 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+17:12:43.343 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+17:12:43.433 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+17:12:43.517 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+17:12:43.527 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17:12:43.657 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@64474981
+17:12:43.658 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17:12:43.690 [restartedMain] INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@5500e5f8
+17:12:43.853 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+17:12:44.287 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+17:12:44.345 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:12:44.534 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+17:12:44.827 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+17:12:44.840 [restartedMain] INFO  c.G.P.GestionePrenotazioniApplication - Started GestionePrenotazioniApplication in 2.298 seconds (process running for 2.747)
+17:12:45.012 [restartedMain] INFO  c.G.Project.service.UtenteService - Selvaggia Gentile MODIFICATO NEL DB
+17:12:45.020 [restartedMain] INFO  c.G.Project.service.UtenteService - Alessio Pitorri MODIFICATO NEL DB
+17:12:45.027 [restartedMain] INFO  c.G.Project.service.UtenteService - Timoteo Pagano MODIFICATO NEL DB
+17:12:45.038 [restartedMain] INFO  c.G.Project.service.UtenteService - Alessio Pitorri MODIFICATO NEL DB
+17:12:45.046 [restartedMain] INFO  c.G.Project.service.UtenteService - Alessandro Benedetti MODIFICATO NEL DB
+17:12:45.053 [restartedMain] INFO  c.G.Project.service.UtenteService - Ubaldo Valentini MODIFICATO NEL DB
+17:12:45.060 [restartedMain] INFO  c.G.Project.service.UtenteService - Guendalina Costa MODIFICATO NEL DB
+17:12:45.068 [restartedMain] INFO  c.G.Project.service.UtenteService - Selvaggia Gentile MODIFICATO NEL DB
+17:12:45.076 [restartedMain] INFO  c.G.Project.service.UtenteService - Selvaggia Gentile MODIFICATO NEL DB
+17:12:45.084 [restartedMain] INFO  c.G.Project.service.UtenteService - Ubaldo Valentini MODIFICATO NEL DB
+17:12:45.090 [restartedMain] INFO  c.G.Project.service.UtenteService - Guendalina Costa MODIFICATO NEL DB
+17:12:45.098 [restartedMain] INFO  c.G.Project.service.UtenteService - Ubaldo Valentini MODIFICATO NEL DB
+17:12:45.104 [restartedMain] INFO  c.G.Project.service.UtenteService - Elio Sanna MODIFICATO NEL DB
+17:12:45.110 [restartedMain] INFO  c.G.Project.service.UtenteService - Concetta Leone MODIFICATO NEL DB
+17:12:45.116 [restartedMain] INFO  c.G.Project.service.UtenteService - Elio Sanna MODIFICATO NEL DB
+17:12:45.124 [restartedMain] INFO  c.G.Project.service.UtenteService - Timoteo Pagano MODIFICATO NEL DB
+17:12:45.131 [restartedMain] INFO  c.G.Project.service.UtenteService - Alessio Pitorri MODIFICATO NEL DB
+17:12:45.137 [restartedMain] INFO  c.G.Project.service.UtenteService - Alessandro Benedetti MODIFICATO NEL DB
+17:12:45.142 [restartedMain] INFO  c.G.P.service.PrenotazioneService - Postazione gia occupata per la data di prenotazione
+17:12:45.149 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+17:12:45.163 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to execute ApplicationRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:764)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:751)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294)
+	at com.GestionePrenotazioni.Project.GestionePrenotazioniApplication.main(GestionePrenotazioniApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.GestionePrenotazioni.Project.model.Prenotazione
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:368)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:234)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:565)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:660)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:410)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:163)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy4/jdk.proxy4.$Proxy108.save(Unknown Source)
+	at com.GestionePrenotazioni.Project.service.UtenteService.updateUtente(UtenteService.java:42)
+	at com.GestionePrenotazioni.Project.runner.PrenotazioneRunnre.run(PrenotazioneRunnre.java:43)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:761)
+	... 10 common frames omitted
+Caused by: java.lang.IllegalStateException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.GestionePrenotazioni.Project.model.Prenotazione
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:152)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:162)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:168)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1416)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:485)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2296)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1961)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:561)
+	... 27 common frames omitted
+Caused by: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.GestionePrenotazioni.Project.model.Prenotazione
+	at org.hibernate.metamodel.mapping.EntityIdentifierMapping.getIdentifierIfNotUnsaved(EntityIdentifierMapping.java:100)
+	at org.hibernate.metamodel.mapping.internal.SimpleForeignKeyDescriptor.getAssociationKeyFromSide(SimpleForeignKeyDescriptor.java:498)
+	at org.hibernate.metamodel.mapping.internal.ManyToManyCollectionPart.decompose(ManyToManyCollectionPart.java:173)
+	at org.hibernate.persister.collection.BasicCollectionPersister.applyInsertRowValues(BasicCollectionPersister.java:395)
+	at org.hibernate.persister.collection.mutation.InsertRowsCoordinatorStandard.insertRows(InsertRowsCoordinatorStandard.java:110)
+	at org.hibernate.persister.collection.BasicCollectionPersister.recreate(BasicCollectionPersister.java:114)
+	at org.hibernate.action.internal.CollectionUpdateAction.execute(CollectionUpdateAction.java:80)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:618)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:489)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:486)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:358)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1412)
+	... 35 common frames omitted
+17:12:45.169 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+17:12:45.171 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+17:12:45.173 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

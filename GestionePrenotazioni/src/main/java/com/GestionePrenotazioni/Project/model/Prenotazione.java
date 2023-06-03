@@ -37,8 +37,7 @@ public class Prenotazione {
 	private LocalDate giornoPrenotazione;
 	private LocalDate scadenzaPrenotazione;
 	
-//	@ManyToMany(fetch = FetchType.EAGER,targetEntity = Utente.class )
-//	private List<Utente> listaUtenti = new ArrayList<Utente>();
+
 	public Prenotazione(Utente utente, Postazione postazione, LocalDate giornoPrenotazione) {
 		super();
 		this.utente = utente;
