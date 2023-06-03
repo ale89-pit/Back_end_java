@@ -1,5 +1,6 @@
 package com.GestionePrenotazioni.Project.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -37,9 +38,7 @@ public class Postazione {
 	private Edificio edificio;
 	@Column(nullable = false)
 	private Integer numMaxPostazioni;
-//	@OneToMany
-//	@JoinColumn(name="lista_prenotazione")
-//	private List<Prenotazione> lsitaPrenotazioni;
+
 	
 	
 	
@@ -49,6 +48,15 @@ public class Postazione {
 		this.tipo = tipo;
 		this.edificio = edificio;
 		this.numMaxPostazioni = numMaxPostazioni;
+	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "Postazione [id=" + id + ", descrizione=" + descrizione + ", tipo=" + tipo + ", numMaxPostazioni="
+				+ numMaxPostazioni + "]";
 	}
 	
 	

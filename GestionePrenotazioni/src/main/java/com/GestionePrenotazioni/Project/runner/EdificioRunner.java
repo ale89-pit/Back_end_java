@@ -19,7 +19,7 @@ public class EdificioRunner implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Edificio Run....");
 
-		 List<Edificio> listaEdifici = edificioService.getAll();
+//		 List<Edificio> listaEdifici = edificioService.getAll();
 		 
 //		 listaEdifici.forEach(a->System.out.println(a));
 //		 for(int i = 0;i<20;i++) {

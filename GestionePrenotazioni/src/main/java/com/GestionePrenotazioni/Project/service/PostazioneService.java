@@ -12,12 +12,14 @@ import com.GestionePrenotazioni.Project.model.Postazione;
 import com.GestionePrenotazioni.Project.model.TipoPostazione;
 import com.GestionePrenotazioni.Project.model.Utente;
 import com.GestionePrenotazioni.Project.repository.PostazioneDAO;
+import com.GestionePrenotazioni.Project.repository.PrenotazioneDAO;
 
 @Service
 public class PostazioneService {
 
 	@Autowired @Qualifier("postazioni_bean") ObjectProvider<Postazione> postazioneProvider;
 	@Autowired private PostazioneDAO postazione_dao;
+	
 	public Postazione createPostazione(String descrizione,TipoPostazione tipo,Edificio edificio,Integer numMax) {
 		return postazioneProvider.getObject(descrizione,tipo,edificio,numMax);
 	}

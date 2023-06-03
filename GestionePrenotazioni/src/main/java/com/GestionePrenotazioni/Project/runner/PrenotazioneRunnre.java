@@ -1,7 +1,9 @@
 package com.GestionePrenotazioni.Project.runner;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -15,6 +17,7 @@ import com.GestionePrenotazioni.Project.service.EdificioService;
 import com.GestionePrenotazioni.Project.service.PostazioneService;
 import com.GestionePrenotazioni.Project.service.PrenotazioneService;
 import com.GestionePrenotazioni.Project.service.UtenteService;
+import com.github.javafaker.Faker;
 @Component
 public class PrenotazioneRunnre implements ApplicationRunner {
 	@Autowired private UtenteService utenteService;
@@ -27,14 +30,27 @@ public class PrenotazioneRunnre implements ApplicationRunner {
 		System.out.println("Prenotazione Run........");
 		List<Utente> listaUtenti = utenteService.getAll();
 		List<Postazione> listaPostazioni = postazioneService.getAll();
+//		
+		for(int i = 0;i<10;i++) {
+			Utente u = listaUtenti.get(Faker.instance().random().nextInt(0, 9));
+			Postazione p = listaPostazioni.get(Faker.instance().random().nextInt(0, 4));
+			Prenotazione prenotazione = prenotazioneService.creaPrenotazione(u, p,Faker.instance().date().future(10, TimeUnit.DAYS).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+			prenotazioneService.insertPrenotazione(prenotazione);
+			
+		}
+//		System.out.println(u);
+//		System.out.println(p);
+////		Prenotazione prenotazione = prenotazioneService.getByID(1);
+//		System.out.println(prenotazione);
+//		Prenotazione prenotazionedb = prenotazioneService.getByID(2);
+//		u.getListaPrenotazioni().add(prenotazione);
+//		utenteService.updateUtente(u);
+//		System.out.println(u);
+//		 System.out.println(u.getListaPrenotazioni().size());
+//		List<Prenotazione> lista = prenotazioneService.findByGiornoPrenotazioneAndPostazione(prenotazione.getGiornoPrenotazione(), p);
+//		
+//		System.out.println(lista.size());
 		
-		
-		Utente u = listaUtenti.get(2);
-		Postazione p = listaPostazioni.get(0);
-		
-		Prenotazione prenotazione = prenotazioneService.creaPrenotazione(u, p, LocalDate.of(2023, 6, 9));
-		
-		prenotazioneService.insertPrenotazione(prenotazione);
 	}
 
 }

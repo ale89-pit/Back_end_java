@@ -1,10 +1,12 @@
 package com.GestionePrenotazioni.Project.service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.GestionePrenotazioni.Project.model.Postazione;
@@ -23,6 +25,41 @@ public class PrenotazioneService {
 	}
 	
 	public void insertPrenotazione(Prenotazione p) {
-		prenotazione_dao.save(p);
+		List<Prenotazione> listagiornoPosta = this.findByGiornoPrenotazioneAndPostazione(p.getGiornoPrenotazione(), p.getPostazione());
+		List<Prenotazione> listagiornoUtente = this.findByGiornoPrenotazioneAndUtente(p.getGiornoPrenotazione(), p.getUtente());
+		
+		if(listagiornoPosta.size() == 0) {
+			
+			if(listagiornoUtente.size() == 0) {
+				prenotazione_dao.save(p);
+		}else {
+			System.out.println("Hai gia una prenotazione in questa data!!!");
+		}
+			
+		}else {
+			System.out.println("La postazione è gia prenotata!!");
+		}
+		
 	}
+	
+//	public void checkPrenotazione() {
+//		List <Prenotazione> lista= 
+//	}
+	
+	public Prenotazione getByID(Integer id) {
+		 return	prenotazione_dao.findById(id).get();
+		}
+	
+	
+	public List <Prenotazione>  findByGiornoPrenotazioneAndPostazione(LocalDate data,Postazione p) {
+		return prenotazione_dao.findByGiornoPrenotazioneAndPostazione(data, p);
+	}
+	
+	public List <Prenotazione>  findByGiornoPrenotazioneAndUtente(LocalDate data,Utente u) {
+		return prenotazione_dao. findByGiornoPrenotazioneAndUtente(data, u);
+	}
+	
+	public List<Prenotazione> getAll() {
+		 return	prenotazione_dao.findAll();
+		}
 }

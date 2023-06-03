@@ -18,8 +18,13 @@ public class UtenteRunner implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Utente Run....");
-
-		Utente u1 = utenteService.createAdminUser();
+//
+//		Utente u1 = utenteService.createAdminUser();
+//		utenteService.insertUtente(u1);
+//		for(int i =0;i<10;i++) {
+//			Utente u2 = utenteService.createFakeUser();
+//			utenteService.insertUtente(u2);
+//		}
 //		Utente u2 = utenteService.createFakeUser();
 //		Utente u3 = utenteService.createCustomUser();
 //		
@@ -31,11 +36,7 @@ public class UtenteRunner implements ApplicationRunner {
 //		System.out.println(u1);
 //		System.out.println(u2);
 //		System.out.println(u3);
-//		for(int i =0;i<10;i++) {
-//			Utente u2 = utenteService.createFakeUser();
-//			utenteService.insertUtente(u2);
-//		}
-//		utenteService.insertUtente(u1);
+//	
 //		utenteService.insertUtente(u2);
 //		utenteService.insertUtente(u3);
 	}

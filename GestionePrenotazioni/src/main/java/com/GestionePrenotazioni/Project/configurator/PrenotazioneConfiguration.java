@@ -18,4 +18,6 @@ public class PrenotazioneConfiguration {
 		public Prenotazione prenotazione(Utente utente,Postazione postazione,LocalDate dataPrenotazione) {
 			return new Prenotazione(utente,postazione,dataPrenotazione);
 		}
+		
+		
 }

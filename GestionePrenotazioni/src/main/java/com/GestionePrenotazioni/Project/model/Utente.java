@@ -12,7 +12,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,9 +43,9 @@ public class Utente {
 	@Column(unique = true, nullable = false)
 	private String email;
 	
-//	@ManyToMany
-//	@JoinColumn(name="lista_prenotazione")
-//	private List<Prenotazione> listaPrenotazioni = new ArrayList<Prenotazione>();
+	@ManyToMany(targetEntity = Prenotazione.class, fetch = FetchType.EAGER)
+	@JoinTable(name="prenotazioni_lista_utenti",joinColumns =   	@JoinColumn(name="prenotazione_id"),inverseJoinColumns = @JoinColumn(name="utente_id"))
+	private List<Prenotazione> listaPrenotazioni = new ArrayList<Prenotazione>();
 
 	public Utente(String userName, String nome, String cognome, String email) {
 		super();

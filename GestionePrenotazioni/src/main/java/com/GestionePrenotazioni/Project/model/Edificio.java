@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -34,8 +35,8 @@ public class Edificio {
 	 private String indirizzo;
 	@Column(nullable = false)
 	private String citta;
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	private List<Postazione> listaPostazioni;
+	@OneToMany(mappedBy ="edificio",fetch = FetchType.EAGER )	
+	private List<Postazione> listaPostazioni = new ArrayList<Postazione>();
 	
 	
 	public Edificio(String nome, String indirizzo, String citta) {
@@ -43,6 +44,12 @@ public class Edificio {
 		this.nome = nome;
 		this.indirizzo = indirizzo;
 		this.citta = citta;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Edificio [id=" + id + ", nome=" + nome + ", indirizzo=" + indirizzo + ", citta=" + citta + "]";
 	}
 	
 	

@@ -22,14 +22,23 @@ public class PostazioneRunner implements ApplicationRunner {
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-//		System.out.println("Postazione Run........");
-//		List<Edificio> listaEdifici = edificioService.getAll();
-//	System.out.println(listaEdifici.get(1));	
-//		String descrizione = Faker.instance().lorem().sentence();
+		System.out.println("Postazione Run........");
+		List<Edificio> listaEdifici = edificioService.getAll();
+	System.out.println(listaEdifici.get(1));
+	
+	
+//	for(int i = 0;i<5;i++) {
 //		
-//		Postazione p1 = postazioneService.createPostazione(descrizione, TipoPostazione.SALA_RIUNIONI, listaEdifici.get(2),75);
+//		String descrizione = Faker.instance().lorem().sentence();
+//		Integer numeroMax = Faker.instance().random().nextInt(1,50 );
+//		TipoPostazione tipo = (numeroMax >1 & numeroMax <=10)  ? TipoPostazione.PRIVATO: numeroMax>11 & 		numeroMax <= 25? TipoPostazione.OPENSPACE:TipoPostazione.SALA_RIUNIONI;
+//		Integer numeroRandomEdificio = Faker.instance().random().nextInt(1,listaEdifici.size()-1);
+//		
+//	
+//		Postazione p1 = postazioneService.createPostazione(descrizione, tipo, listaEdifici.get(numeroRandomEdificio),numeroMax);
 //		
 //		postazioneService.insertPostazione(p1);
+//	}
 	}
 
 }

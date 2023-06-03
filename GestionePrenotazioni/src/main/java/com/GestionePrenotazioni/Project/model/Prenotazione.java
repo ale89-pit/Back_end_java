@@ -1,6 +1,7 @@
 package com.GestionePrenotazioni.Project.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -29,18 +30,27 @@ public class Prenotazione {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Utente utente;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Postazione postazione;
 	private LocalDate giornoPrenotazione;
 	private LocalDate scadenzaPrenotazione;
+	
+//	@ManyToMany(fetch = FetchType.EAGER,targetEntity = Utente.class )
+//	private List<Utente> listaUtenti = new ArrayList<Utente>();
 	public Prenotazione(Utente utente, Postazione postazione, LocalDate giornoPrenotazione) {
 		super();
 		this.utente = utente;
 		this.postazione = postazione;
 		this.giornoPrenotazione = giornoPrenotazione;
 		this.scadenzaPrenotazione = giornoPrenotazione.plusDays(1);
+	}
+	
+	@Override
+	public String toString() {
+		return "Prenotazione [id=" + id + ", utente=" + utente + ", giornoPrenotazione=" + giornoPrenotazione
+				+ ", scadenzaPrenotazione=" + scadenzaPrenotazione +  "]";
 	}
 	
 	
