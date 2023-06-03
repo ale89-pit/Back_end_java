@@ -20,9 +20,10 @@ public class UtenteRunner implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Utente Run....");
-		utenteService.findPostazioneCitta(TipoPostazione.OPENSPACE, "Quasimodo lido").forEach(a->System.out.println(a.getId()+" " +a.getEdificio()));
-//
-//		Utente u1 = utenteService.createAdminUser();
+//		utenteService.findPostazioneCitta(TipoPostazione.OPENSPACE, "Quasimodo lido").forEach(a->System.out.println(a.getId()+" " +a.getEdificio()));
+		Utente u = utenteService.getByID(4);
+		System.out.println(u.getListaPrenotazioni().size());
+		//		Utente u1 = utenteService.createAdminUser();
 //		utenteService.insertUtente(u1);
 //		for(int i =0;i<10;i++) {
 //			Utente u2 = utenteService.createFakeUser();

@@ -31,17 +31,17 @@ public class PrenotazioneRunnre implements ApplicationRunner {
 		System.out.println("Prenotazione Run........");
 		List<Utente> listaUtenti = utenteService.getAll();
 		List<Postazione> listaPostazioni = postazioneService.getAll();
-//		
-		for(int i = 0;i<20;i++) {
-			Utente u = listaUtenti.get(Faker.instance().random().nextInt(0, 9));
-//			Utente u = utenteService.getByID(2);
-			Postazione p = listaPostazioni.get(Faker.instance().random().nextInt(0, 4));
-//			Postazione p = postazioneService.getByID(9);
-			Prenotazione prenotazione = prenotazioneService.creaPrenotazione(u, p,Faker.instance().date().future(10, TimeUnit.DAYS).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+		
+//		for(int i = 0;i<4;i++) {
+//			Utente u = listaUtenti.get(Faker.instance().random().nextInt(0, 9));
+			Utente u = utenteService.getByID(5);
+//			Postazione p = listaPostazioni.get(Faker.instance().random().nextInt(0, 4));
+			Postazione p = postazioneService.getByID(2);
+//			Prenotazione prenotazione = prenotazioneService.creaPrenotazione(u, p,Faker.instance().date().future(10, TimeUnit.DAYS).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+			Prenotazione prenotazione = prenotazioneService.creaPrenotazione(u, p,LocalDate.of(2023, 6, 10));
 			prenotazioneService.insertPrenotazione(prenotazione);
-			u.getListaPrenotazioni().add(prenotazione);
-			utenteService.updateUtente(u);
-		}
+			
+//		}
 		
 		
 		

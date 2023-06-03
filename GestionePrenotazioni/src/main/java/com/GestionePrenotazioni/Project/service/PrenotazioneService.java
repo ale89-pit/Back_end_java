@@ -15,6 +15,7 @@ import com.GestionePrenotazioni.Project.model.Postazione;
 import com.GestionePrenotazioni.Project.model.Prenotazione;
 import com.GestionePrenotazioni.Project.model.Utente;
 import com.GestionePrenotazioni.Project.repository.PrenotazioneDAO;
+import com.GestionePrenotazioni.Project.repository.UtenteDAO;
 
 
 
@@ -23,7 +24,7 @@ public class PrenotazioneService {
 	Logger log = LoggerFactory.getLogger(PrenotazioneService.class);
 	@Autowired @Qualifier("prenotazioneBean") ObjectProvider<Prenotazione> prenotazioneProvider;
 	@Autowired private PrenotazioneDAO prenotazione_dao;
-	
+	@Autowired private UtenteService utenteService;
 	public Prenotazione creaPrenotazione(Utente utente,Postazione postazione,LocalDate dataPrenotazione) {
 		return prenotazioneProvider.getObject(utente,postazione,dataPrenotazione);
 	}
@@ -36,6 +37,9 @@ public class PrenotazioneService {
 			
 			if(listagiornoUtente.size() == 0) {
 				prenotazione_dao.save(p);
+				p.getUtente().getListaPrenotazioni().add(p);
+				utenteService.updateUtente(p.getUtente());
+				
 		}else {
 			System.out.println("Hai gia una prenotazione in questa data!!!");
 			log.info("L'utente ha gia una prenotazione nella stessa data");
