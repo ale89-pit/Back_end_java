@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.hibernate.annotations.Columns;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -45,6 +47,7 @@ public class Utente {
 	
 	@ManyToMany(targetEntity = Prenotazione.class, fetch = FetchType.EAGER)
 	@JoinTable(name="prenotazioni_lista_utenti",joinColumns =   	@JoinColumn(name="utente_id"),inverseJoinColumns = @JoinColumn(name="prenotazione_id"))
+	@JsonIgnore
 	private List<Prenotazione> listaPrenotazioni = new ArrayList<Prenotazione>();
 
 	public Utente(String userName, String nome, String cognome, String email) {

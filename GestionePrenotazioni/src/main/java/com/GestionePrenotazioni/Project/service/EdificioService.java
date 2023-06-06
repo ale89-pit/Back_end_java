@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.GestionePrenotazioni.Project.configurator.EdificioConfiguration;
+
 import com.GestionePrenotazioni.Project.model.Edificio;
 import com.GestionePrenotazioni.Project.model.Utente;
 import com.GestionePrenotazioni.Project.repository.EdificioDAO;
