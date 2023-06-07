@@ -29,24 +29,25 @@ public class PostazioneService {
 		return postazioneProvider.getObject(descrizione, tipo, edificio, numMax);
 	}
 
-	public void insertPostazione(Postazione p) {
-		postazione_dao.save(p);
+	public Postazione insertPostazione(Postazione p) {
+	return	postazione_dao.save(p);
 
-		log.info(p.getTipo() + " " + p.getEdificio().getCitta() + "" + p.getEdificio().getIndirizzo() + " "
-				+ p.getNumMaxPostazioni() + " INSERITO NEL DB");
+//		log.info(p.getTipo() + " " + p.getEdificio().getCitta() + "" + p.getEdificio().getIndirizzo() + " "
+//				+ p.getNumMaxPostazioni() + " INSERITO NEL DB");
 	}
 
-	public void updatePostazione(Postazione p) {
-		postazione_dao.save(p);
-		log.info(p.getTipo() + " " + p.getEdificio().getCitta() + "" + p.getEdificio().getIndirizzo() + " "
-				+ p.getNumMaxPostazioni() + " MODIFICATO NEL DB");
+	public Postazione updatePostazione(Postazione p) {
+	return	postazione_dao.save(p);
+//		log.info(p.getTipo() + " " + p.getEdificio().getCitta() + "" + p.getEdificio().getIndirizzo() + " "
+//				+ p.getNumMaxPostazioni() + " MODIFICATO NEL DB");
 
 	}
 
-	public void deletePostazione(Postazione p) {
-		postazione_dao.delete(p);
-		log.info(p.getTipo() + " " + p.getEdificio().getCitta() + "" + p.getEdificio().getIndirizzo() + " "
-				+ p.getNumMaxPostazioni() + " ELIMINATO NEL DB");
+	public String deletePostazione(Integer id) {
+		postazione_dao.deleteById(id);
+		return "Postazione eliminata";
+//		log.info(p.getTipo() + " " + p.getEdificio().getCitta() + "" + p.getEdificio().getIndirizzo() + " "
+//				+ p.getNumMaxPostazioni() + " ELIMINATO NEL DB");
 	}
 
 	public Postazione getByID(Integer id) {

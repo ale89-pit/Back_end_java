@@ -23,7 +23,7 @@ public class PostazioneRunner implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Postazione Run........");
-		List<Edificio> listaEdifici = edificioService.getAll();
+//		List<Edificio> listaEdifici = edificioService.getAll();
 //	System.out.println(listaEdifici.get(1));
 	
 	

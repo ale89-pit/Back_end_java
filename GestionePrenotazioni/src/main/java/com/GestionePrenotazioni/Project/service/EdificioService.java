@@ -27,18 +27,18 @@ public class EdificioService {
 			return edificioProvider.getObject();
 		}
 		
-		public void insertEdificio(Edificio e) {
-			edificio_dao.save(e);
-			log.info(e.getNome() + " "+ e.getCitta() +" "+ e.getIndirizzo() +" INSERITO NEL DB");
+		public Edificio insertEdificio(Edificio e) {
+		return	edificio_dao.save(e);
+//			log.info(e.getNome() + " "+ e.getCitta() +" "+ e.getIndirizzo() +" INSERITO NEL DB");
 		}
 		
-		public void updateEdificio(Edificio e) {
-			edificio_dao.save(e);
-			log.info(e.getNome() + " "+ e.getCitta() +" "+ e.getIndirizzo() +" MODIFICATO NEL DB");
+		public Edificio updateEdificio(Edificio e) {
+		return	edificio_dao.save(e);
+//			log.info(e.getNome() + " "+ e.getCitta() +" "+ e.getIndirizzo() +" MODIFICATO NEL DB");
 		}
-		public void deleteEdificio(Edificio e) {
-			edificio_dao.delete(e);
-			log.info(e.getNome() + " "+ e.getCitta() +" "+ e.getIndirizzo() +" ELIMINATO DAL DB");
+		public void deleteEdificio(Integer id) {
+			edificio_dao.deleteById(id);
+//			log.info(e.getNome() + " "+ e.getCitta() +" "+ e.getIndirizzo() +" ELIMINATO DAL DB");
 		}
 		public Edificio getById(Integer id) {
 			return edificio_dao.findById(id).get();
