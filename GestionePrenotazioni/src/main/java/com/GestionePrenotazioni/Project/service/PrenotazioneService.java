@@ -61,6 +61,8 @@ public class PrenotazioneService {
 		}
 		
 	}
+	
+	
 	public Prenotazione updatePrenotazione(Prenotazione p) {
 		p.setScadenzaPrenotazione(p.getGiornoPrenotazione().plusDays(1));
 		return prenotazione_dao.save(p);

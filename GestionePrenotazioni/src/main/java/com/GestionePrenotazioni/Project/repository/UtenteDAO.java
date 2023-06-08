@@ -15,7 +15,15 @@ public interface UtenteDAO extends JpaRepository<Utente, Integer> {
 
 	
 	public boolean existsById(Integer id);
-	
+	  Optional<Utente> findByEmail(String email);
+
+	    Optional<Utente> findByUserNameOrEmail(String username, String email);
+
+	    Optional<Utente> findByUserName(String username);
+
+	    Boolean existsByUserName(String username);
+
+	    Boolean existsByEmail(String email);
 	
 	// SELECT * FROM postazioni p WHERE p.tipo = 'OPENSPACE' AND p.edificio_id in (SELECT id from edifici where citta = 'Quasimodo lido')
 	@Query("SELECT p FROM Postazione p WHERE p.tipo = :tipo AND edificio in(SELECT id FROM Edificio e WHERE e.citta = :citta)")
