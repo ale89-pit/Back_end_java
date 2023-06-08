@@ -14,6 +14,8 @@ import com.GestionePrenotazioni.Project.model.TipoPostazione;
 import com.GestionePrenotazioni.Project.model.Utente;
 import com.GestionePrenotazioni.Project.repository.UtenteDAO;
 
+import jakarta.persistence.EntityExistsException;
+
 @Service
 public class UtenteService {
 	Logger log = LoggerFactory.getLogger(UtenteService.class);
@@ -51,7 +53,11 @@ public class UtenteService {
 //		log.info(u.getNome() +" "+ u.getCognome()+" "+u.getUserName()+" eliminato correttamente");
 	}
 	public Utente getByID(Integer id) {
-	 return	utente_dao.findById(id).get();
+		if(!utente_dao.existsById(id)) {
+			
+				throw new EntityExistsException("Nessun utente trovato");
+		}
+		return utente_dao.findById(id).get();
 	}
 	public List<Utente> getAll() {
 		 return	utente_dao.findAll();

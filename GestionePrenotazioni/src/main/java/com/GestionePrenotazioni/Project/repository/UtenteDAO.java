@@ -1,6 +1,7 @@
 package com.GestionePrenotazioni.Project.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,9 +14,10 @@ import com.GestionePrenotazioni.Project.model.Utente;
 public interface UtenteDAO extends JpaRepository<Utente, Integer> {
 
 	
+	public boolean existsById(Integer id);
+	
+	
 	// SELECT * FROM postazioni p WHERE p.tipo = 'OPENSPACE' AND p.edificio_id in (SELECT id from edifici where citta = 'Quasimodo lido')
-	
-	
 	@Query("SELECT p FROM Postazione p WHERE p.tipo = :tipo AND edificio in(SELECT id FROM Edificio e WHERE e.citta = :citta)")
 	public List<Postazione> findPostazioneCitta(TipoPostazione tipo,String citta);
 }

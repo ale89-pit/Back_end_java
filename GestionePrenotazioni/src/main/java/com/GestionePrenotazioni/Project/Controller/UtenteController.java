@@ -30,8 +30,15 @@ public class UtenteController {
 		List<Utente> list = utente_Service.getAll();
 		return list;
 	}
+	@GetMapping("/{id}")
+	public Utente getUtente(@PathVariable Integer id){
+		
+		return 	 utente_Service.getByID(id);
+		
+	}
 	@PostMapping
 	public Utente insertUtente(@RequestBody Utente u) {
+		
 	Utente utente = utente_Service.insertUtente(u);;
 		return utente;
 	}

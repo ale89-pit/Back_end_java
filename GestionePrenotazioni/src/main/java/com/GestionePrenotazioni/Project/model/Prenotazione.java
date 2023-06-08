@@ -1,8 +1,13 @@
 package com.GestionePrenotazioni.Project.model;
 
+import java.beans.ConstructorProperties;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.ConstructorBinding;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -24,6 +29,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
+@DynamicUpdate
 public class Prenotazione {
 	
 	@Id
@@ -35,9 +41,9 @@ public class Prenotazione {
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Postazione postazione;
 	private LocalDate giornoPrenotazione;
-	private LocalDate scadenzaPrenotazione;
+	private LocalDate scadenzaPrenotazione ;
 	
-
+	
 	public Prenotazione(Utente utente, Postazione postazione, LocalDate giornoPrenotazione) {
 		super();
 		this.utente = utente;

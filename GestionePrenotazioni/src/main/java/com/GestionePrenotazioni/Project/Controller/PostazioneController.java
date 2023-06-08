@@ -25,22 +25,27 @@ public class PostazioneController {
 	
 	
 	@GetMapping
-	public List<Postazione> getAllUtenti(){
+	public List<Postazione> getAllPostazioni(){
 		List<Postazione> list = postazione_Service.getAll();
 		return list;
 	}
+	@GetMapping("/{id}")
+	public Postazione getPostazione(@PathVariable Integer id){
+	return postazione_Service.getByID(id);
+		
+	}
 	@PostMapping
-	public Postazione insertUtente(@RequestBody Postazione p) {
+	public Postazione insertPostazione(@RequestBody Postazione p) {
 		Postazione nuova = postazione_Service.insertPostazione(p);;
 		return nuova;
 	}
 	@PutMapping("/{id}")
-	public Postazione modificaUtente(@RequestBody Postazione p,@PathVariable Integer id) {
+	public Postazione modificaPostazione(@RequestBody Postazione p,@PathVariable Integer id) {
 		Postazione updated = postazione_Service.updatePostazione(p);
 		return updated;
 	}
 	@DeleteMapping("/{id}")
-	public String deleteUtente(@PathVariable Integer id) {
+	public String deletePostazione(@PathVariable Integer id) {
 		postazione_Service.deletePostazione(id);
 		return "Utente Eliminato correttamente";
 	}
