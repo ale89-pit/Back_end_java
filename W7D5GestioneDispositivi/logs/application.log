@@ -3669,3 +3669,28 @@ Caused by: org.postgresql.util.PSQLException: ERRORE: l'operatore non esiste: ch
 16:51:38.443 [Thread-31] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 16:51:38.443 [Thread-31] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown initiated...
 16:51:38.444 [Thread-31] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown completed.
+16:51:38.490 [restartedMain] INFO  c.G.P.W7D5GestioneDispositiviApplication - Starting W7D5GestioneDispositiviApplication using Java 17.0.7 with PID 9452 (C:\Users\Aless\eclipse-workspace\W7D5GestioneDispositivi\target\classes started by Aless in C:\Users\Aless\eclipse-workspace\W7D5GestioneDispositivi)
+16:51:38.490 [restartedMain] INFO  c.G.P.W7D5GestioneDispositiviApplication - No active profile set, falling back to 1 default profile: "default"
+16:51:38.606 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:51:38.617 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 3 JPA repository interfaces.
+16:51:38.687 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+16:51:38.687 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:51:38.687 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+16:51:38.700 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:51:38.701 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 209 ms
+16:51:38.732 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:51:38.737 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+16:51:38.737 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+16:51:38.738 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Starting...
+16:51:38.770 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-9 - Added connection org.postgresql.jdbc.PgConnection@5b390e0e
+16:51:38.771 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Start completed.
+16:51:38.776 [restartedMain] INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@6f138afd
+16:51:38.785 [restartedMain] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+16:51:38.807 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:51:38.850 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:51:38.958 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16:51:39.043 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45672942, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d0ed279, org.springframework.security.web.context.SecurityContextHolderFilter@4950127, org.springframework.security.web.header.HeaderWriterFilter@103f4482, org.springframework.web.filter.CorsFilter@7dc24bd3, org.springframework.security.web.authentication.logout.LogoutFilter@6e45655c, com.GestioneDispositivi.Project.security.security.JwtAuthenticationFilter@21d2846a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@174b5bd7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d3a06e8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5f0aa585, org.springframework.security.web.session.SessionManagementFilter@201a5fe0, org.springframework.security.web.access.ExceptionTranslationFilter@26b6bf75, org.springframework.security.web.access.intercept.AuthorizationFilter@2f71a365]
+16:51:39.105 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:51:39.114 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+16:51:39.117 [restartedMain] INFO  c.G.P.W7D5GestioneDispositiviApplication - Started W7D5GestioneDispositiviApplication in 0.642 seconds (process running for 2357.552)
+16:51:39.118 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
