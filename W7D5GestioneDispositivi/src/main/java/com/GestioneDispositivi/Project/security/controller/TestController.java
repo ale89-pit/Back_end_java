@@ -1,4 +1,6 @@
-package com.GestionePrenotazioni.Project.Controller;
+package com.GestioneDispositivi.Project.security.controller;
+
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +28,7 @@ public class TestController {
 	}
 	
 	@GetMapping("/user")
-	@PreAuthorize("hasRoles('USER') or hasRoles('ADMIN')")
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public String userAccess() {
 		return "User Content.";
 	}
