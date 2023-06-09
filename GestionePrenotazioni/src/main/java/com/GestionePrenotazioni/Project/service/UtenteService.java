@@ -14,6 +14,8 @@ import com.GestionePrenotazioni.Project.model.TipoPostazione;
 import com.GestionePrenotazioni.Project.model.Utente;
 import com.GestionePrenotazioni.Project.repository.UtenteDAO;
 
+import jakarta.persistence.EntityExistsException;
+
 @Service
 public class UtenteService {
 	Logger log = LoggerFactory.getLogger(UtenteService.class);
@@ -34,20 +36,28 @@ public class UtenteService {
 		return userCustomProvider.getObject();
 	}
 	
-	public void insertUtente(Utente u) {
-		utente_dao.save(u);
-		log.info(u.getNome() + " "+ u.getCognome() + " INSERITO NEL DB");
+	public Utente insertUtente(Utente u) {
+		
+		Utente nuovo = utente_dao.save(u);
+	log.info(u.getNome() + " "+ u.getCognome() + " INSERITO NEL DB");
+	return nuovo;
+		
 	}
-	public void updateUtente(Utente u) {
-		utente_dao.save(u);
+	public Utente updateUtente(Utente u) {
+		Utente updated =	utente_dao.save(u);
 		log.info(u.getNome() + " "+ u.getCognome() + " MODIFICATO NEL DB");
+		return updated;
 	}
-	public void deleteUtente(Utente u) {
-		utente_dao.delete(u);
-		log.info(u.getNome() +" "+ u.getCognome()+" "+u.getUserName()+" eliminato correttamente");
+	public void deleteUtente(Integer id) {
+		utente_dao.deleteById(id);;
+//		log.info(u.getNome() +" "+ u.getCognome()+" "+u.getUserName()+" eliminato correttamente");
 	}
 	public Utente getByID(Integer id) {
-	 return	utente_dao.findById(id).get();
+		if(!utente_dao.existsById(id)) {
+			
+				throw new EntityExistsException("Nessun utente trovato");
+		}
+		return utente_dao.findById(id).get();
 	}
 	public List<Utente> getAll() {
 		 return	utente_dao.findAll();

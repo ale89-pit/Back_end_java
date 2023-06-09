@@ -3,6 +3,8 @@ package com.GestionePrenotazioni.Project.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,7 +37,8 @@ public class Edificio {
 	 private String indirizzo;
 	@Column(nullable = false)
 	private String citta;
-	@OneToMany(mappedBy ="edificio",fetch = FetchType.EAGER )	
+	@OneToMany(mappedBy ="edificio",fetch = FetchType.EAGER )
+	@JsonIgnore
 	private List<Postazione> listaPostazioni = new ArrayList<Postazione>();
 	
 	

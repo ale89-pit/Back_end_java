@@ -18,7 +18,7 @@ import com.GestionePrenotazioni.Project.service.EdificioService;
 import com.GestionePrenotazioni.Project.service.PostazioneService;
 import com.GestionePrenotazioni.Project.service.PrenotazioneService;
 import com.GestionePrenotazioni.Project.service.UtenteService;
-import com.github.javafaker.Faker;
+
 @Component
 public class PrenotazioneRunnre implements ApplicationRunner {
 	@Autowired private UtenteService utenteService;

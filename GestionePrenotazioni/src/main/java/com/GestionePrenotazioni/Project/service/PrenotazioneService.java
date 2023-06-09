@@ -16,6 +16,9 @@ import com.GestionePrenotazioni.Project.model.Prenotazione;
 import com.GestionePrenotazioni.Project.model.Utente;
 import com.GestionePrenotazioni.Project.repository.PrenotazioneDAO;
 import com.GestionePrenotazioni.Project.repository.UtenteDAO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.EntityExistsException;
 
 
 
@@ -25,39 +28,55 @@ public class PrenotazioneService {
 	@Autowired @Qualifier("prenotazioneBean") ObjectProvider<Prenotazione> prenotazioneProvider;
 	@Autowired private PrenotazioneDAO prenotazione_dao;
 	@Autowired private UtenteService utenteService;
+	
 	public Prenotazione creaPrenotazione(Utente utente,Postazione postazione,LocalDate dataPrenotazione) {
 		return prenotazioneProvider.getObject(utente,postazione,dataPrenotazione);
 	}
 	
-	public void insertPrenotazione(Prenotazione p) {
-		List<Prenotazione> listagiornoPosta = this.findByGiornoPrenotazioneAndPostazione(p.getGiornoPrenotazione(), p.getPostazione());
-		List<Prenotazione> listagiornoUtente = this.findByGiornoPrenotazioneAndUtente(p.getGiornoPrenotazione(), p.getUtente());
+	public Prenotazione insertPrenotazione(Prenotazione p) {
 		
-		if(listagiornoPosta.size() == 0) {
-			
-			if(listagiornoUtente.size() == 0) {
-				prenotazione_dao.save(p);
+//		List<Prenotazione> listagiornoPosta = this.findByGiornoPrenotazioneAndPostazione(p.getGiornoPrenotazione(), p.getPostazione());
+//		List<Prenotazione> listagiornoUtente = this.findByGiornoPrenotazioneAndUtente(p.getGiornoPrenotazione(), p.getUtente());
+//		
+		if(prenotazione_dao.findByGiornoPrenotazioneAndPostazione(p.getGiornoPrenotazione(), p.getPostazione()).size() == 0) {
+//			
+			if(prenotazione_dao.findByGiornoPrenotazioneAndUtente(p.getGiornoPrenotazione(), p.getUtente()).size() == 0) {
+			p.setScadenzaPrenotazione(p.getGiornoPrenotazione().plusDays(1));
+				Prenotazione nuova = prenotazione_dao.save(p);
 				p.getUtente().getListaPrenotazioni().add(p);
 				utenteService.updateUtente(p.getUtente());
+				return nuova;
 				
 		}else {
-			System.out.println("Hai gia una prenotazione in questa data!!!");
 			log.info("L'utente ha gia una prenotazione nella stessa data");
+			throw new EntityExistsException("L'utente ha gia una prenotazione in questa data");
+			
 		}
 			
 		}else {
 			System.out.println("La postazione è gia prenotata!!");
 			log.info("Postazione gia occupata per la data di prenotazione");
+			throw new EntityExistsException("Postazione gia occupata per questa data");
+			
 		}
 		
 	}
+	
+	
+	public Prenotazione updatePrenotazione(Prenotazione p) {
+		p.setScadenzaPrenotazione(p.getGiornoPrenotazione().plusDays(1));
+		return prenotazione_dao.save(p);
+	}
+	
 	
 
 	
 	public Prenotazione getByID(Integer id) {
 		 return	prenotazione_dao.findById(id).get();
 		}
-	
+	public void deletePrenotazione(Integer id) {
+		prenotazione_dao.deleteById(id);
+	}
 	
 	public List <Prenotazione>  findByGiornoPrenotazioneAndPostazione(LocalDate data,Postazione p) {
 		return prenotazione_dao.findByGiornoPrenotazioneAndPostazione(data, p);
