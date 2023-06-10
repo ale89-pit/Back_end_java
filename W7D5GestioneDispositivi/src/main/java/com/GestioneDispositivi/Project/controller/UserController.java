@@ -34,14 +34,14 @@ public class UserController {
 		return ResponseEntity.ok(userRepo.findAll()) ;
 	}
 	
-	@PutMapping("/{user_id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	@PatchMapping("/{user_id}")
+//	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> updateUser(@PathVariable Long user_id,@RequestBody User u) {
 		return ResponseEntity.ok(userService.updateUser(user_id, u));
 	}
 	@PatchMapping("/assign/{user_id}")
 	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<?> updateUser(@PathVariable Long user_id,@RequestBody Device d) {
+	public ResponseEntity<?> updateUserWhitDevice(@PathVariable Long user_id,@RequestBody Device d) {
 		return ResponseEntity.ok(userService.addDevice(user_id, d));
 	}
 

@@ -27,6 +27,25 @@ public class UserService {
 		if(!userRepo.existsById(id)) {
 			throw new EntityExistsException("User not found");
 		}
+		User old = userRepo.findById(id).get();
+		if(d.getName()== null) {
+			d.setName(old.getName());
+		}
+		if(d.getLastName() == null) {
+			d.setLastName(old.getLastName());
+		}
+		if(d.getEmail() == null) {
+			d.setEmail(old.getEmail());
+		}
+		if(d.getPassword() == null) {
+			d.setPassword(old.getPassword());
+		}
+		if(d.getDeviceAssegnati() == null) {
+			d.setDeviceAssegnati(old.getDeviceAssegnati());
+		}
+		if(d.getRoles() == null) {
+			d.setRoles(old.getRoles());
+		}
 		
 		return userRepo.save(d);
 	}
@@ -41,10 +60,11 @@ public class UserService {
 			throw new EntityExistsException("User not found");
 		}
 		User u = userRepo.findById(user_id).get();
-		if(d.getStatus().equals(DeviceStatus.ASSEGNATO)) {
-			throw new EntityExistsException("Il device risulta assegnato");
+		Device deviceAssign= deviceService.getDeviceById(d.getId());
+		if(deviceAssign.getStatus().equals(DeviceStatus.ASSEGNATO)) {
+			throw new EntityExistsException("Device assigned");
 		}
-		Device deviceAssign = deviceRepo.findById(d.getId()).get();
+		 
 		u.getDeviceAssegnati().add(deviceAssign);
 		deviceAssign.setStatus(DeviceStatus.ASSEGNATO);
 		deviceService.updateDevice(deviceAssign.getId(), deviceAssign);
