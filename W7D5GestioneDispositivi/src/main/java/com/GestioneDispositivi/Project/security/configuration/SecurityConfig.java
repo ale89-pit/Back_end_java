@@ -63,6 +63,9 @@ public class SecurityConfig {
         .authorizeHttpRequests((authorize) -> authorize
         		.requestMatchers(HttpMethod.GET, "/api/**").permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers( "/api/users/**").permitAll()
+                .requestMatchers( "/api/devices/**").permitAll()
+                .requestMatchers(HttpMethod.PATCH,"/api/users/assing/**").hasRole("ADMIN")
                 .anyRequest().authenticated())
         .exceptionHandling( exception -> exception
                 .authenticationEntryPoint(authenticationEntryPoint)

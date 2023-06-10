@@ -39,9 +39,14 @@ public class UserController {
 	public ResponseEntity<?> updateUser(@PathVariable Long user_id,@RequestBody User u) {
 		return ResponseEntity.ok(userService.updateUser(user_id, u));
 	}
+	@PatchMapping("/assign/{user_id}")
+	@PreAuthorize("hasRole('ADMIN')")
+	public ResponseEntity<?> updateUser(@PathVariable Long user_id,@RequestBody Device d) {
+		return ResponseEntity.ok(userService.addDevice(user_id, d));
+	}
 
 	@DeleteMapping("/{user_id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> updateUser(@PathVariable Long user_id) {
 		 userService.removeUser(user_id);
 		 return ResponseEntity.ok("User deleted");
