@@ -42,7 +42,7 @@ public class User {
     private String password;
 
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.PERSIST)
 	private List<Device> deviceAssegnati;
     
     

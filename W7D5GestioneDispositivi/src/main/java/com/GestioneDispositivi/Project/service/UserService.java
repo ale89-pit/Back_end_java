@@ -76,6 +76,14 @@ public class UserService {
 		if(!userRepo.existsById(id)) {
 			throw new EntityExistsException("User not found");
 		}
+		User u = userRepo.findById(id).get();
+		if(u.getDeviceAssegnati().size() > 0) {
+			u.getDeviceAssegnati().forEach(d->{
+				d.setStatus(DeviceStatus.DISPONIBILE);
+			deviceService.updateDevice(d.getId(), d);
+				
+			});
+		}
 		userRepo.deleteById(id);
 		return "User eliminato correttamente!!";
 	}
