@@ -1,4 +1,4 @@
-package com.GestionePrenotazioni.Project.Payload;
+package com.GestionePrenotazioni.Project.Security.payload;
 
 import java.util.Date;
 

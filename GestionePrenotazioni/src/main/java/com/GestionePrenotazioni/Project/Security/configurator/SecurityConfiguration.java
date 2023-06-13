@@ -1,4 +1,4 @@
-package com.GestionePrenotazioni.Project.configurator;
+package com.GestionePrenotazioni.Project.Security.configurator;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,8 +17,8 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.GestionePrenotazioni.Project.Security.JwtAuthenticationEntryPoint;
-import com.GestionePrenotazioni.Project.Security.JwtAuthenticationFilter;
+import com.GestionePrenotazioni.Project.Security.security.JwtAuthenticationEntryPoint;
+import com.GestionePrenotazioni.Project.Security.security.JwtAuthenticationFilter;
 
 
 

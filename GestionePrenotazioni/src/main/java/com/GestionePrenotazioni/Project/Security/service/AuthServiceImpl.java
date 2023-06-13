@@ -1,4 +1,4 @@
-package com.GestionePrenotazioni.Project.service;
+package com.GestionePrenotazioni.Project.Security.service;
 
 
 import java.util.HashSet;
@@ -12,9 +12,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.GestionePrenotazioni.Project.Payload.LoginDto;
-import com.GestionePrenotazioni.Project.Payload.RegisterDto;
-import com.GestionePrenotazioni.Project.Security.JwtTokenProvider;
+import com.GestionePrenotazioni.Project.Security.payload.LoginDto;
+import com.GestionePrenotazioni.Project.Security.payload.RegisterDto;
+import com.GestionePrenotazioni.Project.Security.security.JwtTokenProvider;
 import com.GestionePrenotazioni.Project.model.ERole;
 import com.GestionePrenotazioni.Project.model.Role;
 import com.GestionePrenotazioni.Project.model.Utente;

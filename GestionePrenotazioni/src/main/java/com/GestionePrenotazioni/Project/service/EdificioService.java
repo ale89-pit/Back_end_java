@@ -28,6 +28,7 @@ public class EdificioService {
 		}
 		
 		public Edificio insertEdificio(Edificio e) {
+			e.setActive(false);
 		return	edificio_dao.save(e);
 //			log.info(e.getNome() + " "+ e.getCitta() +" "+ e.getIndirizzo() +" INSERITO NEL DB");
 		}

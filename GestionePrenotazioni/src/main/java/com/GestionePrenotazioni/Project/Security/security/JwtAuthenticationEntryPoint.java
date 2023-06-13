@@ -1,4 +1,4 @@
-package com.GestionePrenotazioni.Project.Security;
+package com.GestionePrenotazioni.Project.Security.security;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

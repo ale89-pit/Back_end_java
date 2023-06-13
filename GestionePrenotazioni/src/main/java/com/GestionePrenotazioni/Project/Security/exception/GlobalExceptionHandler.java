@@ -1,4 +1,4 @@
-package com.GestionePrenotazioni.Project.exception;
+package com.GestionePrenotazioni.Project.Security.exception;
 
 
 import org.springframework.http.HttpHeaders;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.GestionePrenotazioni.Project.Payload.ErrorDetails;
+import com.GestionePrenotazioni.Project.Security.payload.ErrorDetails;
 
 import java.util.Date;
 import java.util.HashMap;

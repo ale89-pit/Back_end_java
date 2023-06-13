@@ -1,4 +1,4 @@
-package com.GestionePrenotazioni.Project.exception;
+package com.GestionePrenotazioni.Project.Security.exception;
 
 import org.springframework.http.HttpStatus;
 

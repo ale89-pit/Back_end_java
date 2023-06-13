@@ -1,17 +1,17 @@
-package com.GestionePrenotazioni.Project.Controller;
+package com.GestionePrenotazioni.Project.Security.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.GestionePrenotazioni.Project.Payload.JWTAuthResponse;
-import com.GestionePrenotazioni.Project.Payload.LoginDto;
-import com.GestionePrenotazioni.Project.Payload.RegisterDto;
-import com.GestionePrenotazioni.Project.service.AuthService;
+import com.GestionePrenotazioni.Project.Security.payload.JWTAuthResponse;
+import com.GestionePrenotazioni.Project.Security.payload.LoginDto;
+import com.GestionePrenotazioni.Project.Security.payload.RegisterDto;
+import com.GestionePrenotazioni.Project.Security.service.AuthService;
 
 
 

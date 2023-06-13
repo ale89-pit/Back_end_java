@@ -1,4 +1,4 @@
-package com.GestionePrenotazioni.Project.runner;
+package com.GestionePrenotazioni.Project.Security.runner;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -10,11 +10,11 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import com.GestionePrenotazioni.Project.Security.service.AuthService;
 import com.GestionePrenotazioni.Project.model.ERole;
 import com.GestionePrenotazioni.Project.model.Role;
 import com.GestionePrenotazioni.Project.repository.RoleDAO;
 import com.GestionePrenotazioni.Project.repository.UtenteDAO;
-import com.GestionePrenotazioni.Project.service.AuthService;
 
 
 
