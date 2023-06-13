@@ -10,3 +10,4 @@ local.properties
 .loadpath
 .recommenders
 W7D5GestioneDispositivi/logs/application.log
+*.log
