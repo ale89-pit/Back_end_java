@@ -12,3 +12,4 @@ local.properties
 W7D5GestioneDispositivi/logs/application.log
 *~.log
 *.log
+src/*/[Ll]ogs/*
