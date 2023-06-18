@@ -15,9 +15,23 @@ public class SondaService {
 
 	@Autowired SondaRepository sondaDAO;
 	
-	public void saveSonda(Sonda s) {
-		sondaDAO.save(s);
+	public Sonda saveSonda(Sonda s) {
+	return	sondaDAO.save(s);
 		
+	}
+	public Sonda setSegnaleFumo(Long id,Integer i) {
+		if(!sondaDAO.existsById(id)) {
+			throw new EntityExistsException("la sonda nn è presente");
+		}
+		Sonda s = sondaDAO.findById(id).get();
+		s.setSegnaleFumo(i);
+		sondaDAO.save(s);
+		if(i > 6) {
+			return s;
+			
+		}
+		
+		return s;
 	}
 	
 	public void updateSonda(Long id,Sonda s) {
@@ -35,5 +49,11 @@ public class SondaService {
 	}
 	public List<Sonda> getAll(){
 		return sondaDAO.findAll();
+	}
+	public Sonda getById(Long id){
+		if(!sondaDAO.existsById(id)) {
+			throw new EntityExistsException("la sonda nn è presente");
+		}
+		return sondaDAO.findById(id).get();
 	}
 }
